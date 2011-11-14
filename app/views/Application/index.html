@@ -1,0 +1,10 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+
+<form action="@{Application.sayHello()}" method="GET">
+    <input type="text" name="myName" />
+    <select size=6>
+        <option>ASUS</option>
+    </select>
+</form>
