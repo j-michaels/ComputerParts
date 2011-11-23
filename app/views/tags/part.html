@@ -1,0 +1,59 @@
+<div id="${_part}" style="">
+  <table border="1">
+    <tr>
+      <td valign="top">
+        <strong>Current selection information</strong> <br />
+        Model: AAAAA <br />
+        Manufacturer: BBBBB <br />
+        Cores: CCCCC <br />
+        Speed: DDDDD <br />
+        Cache: EEEEE <br />
+      </td>
+      <td>
+        <div id="${_part}_list">
+        	#{ifnot _gpus}
+			<p>
+				No GPUs
+			</p>
+			#{/ifnot}
+        	<select size="7" id="gpulist">
+        	
+        	#{list items:_gpus, as:'gpu'}
+        		<option>
+        			${gpu.name}
+        		</option>
+        	#{/list}
+        	</select>
+        </div>
+      </td>
+      <td align="center">
+        <strong>Options</strong> <br />
+        <table>
+          <tr valign="top">
+            <td>
+              Manufacturer <br />
+              <input type="checkbox" name="cpu_manufacturer" />Intel <br />
+              <input type="checkbox" name="cpu_manufacturer" />AMD <br />
+            </td>
+            <td>
+              Cores <br />
+              <input type="radio" name="cpu_cores" />&gt;=1 <br />
+              <input type="radio" name="cpu_cores" />&gt;=2 <br />
+              <input type="radio" name="cpu_cores" />&gt;=4 <br />
+            </td>
+            <td>
+              Speed <br />
+              <input type="radio" name="cpu_speed" />&gt;=2.0GHz <br />
+              <input type="radio" name="cpu_speed" />&gt;=2.4GHz <br />
+              <input type="radio" name="cpu_speed" />&gt;=2.8GHz <br />
+              <input type="radio" name="cpu_speed" />&gt;=3.2GHz <br />
+            </td>
+          </tr>
+        </table>
+        <br />
+        <button type="button" id="commit_${_part}" onclick="updateList(${_id})">Commit</button>
+        <button type="button" id="reset_${_part}" onclick="resetList(${_id})">Reset</button>
+      </td>
+    </tr>
+  </table>
+</div>

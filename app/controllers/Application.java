@@ -10,16 +10,15 @@ import models.*;
 public class Application extends Controller {
 
     public static void index() {
-        render();
+        List gpus = GPU.find("order by name desc").fetch();
+        render(gpus);
     }
     
-    public static void foo() {
-        String zap = "foobar";
-        render();
-    }
-    
-    public static void sayHello(String myName) {
-        render(myName);
+    public static void createGPU(String name) {
+    	GPU gpu = new GPU(name);
+    	gpu.save();
+    	System.out.println("Test");
+    	renderJSON(gpu);
     }
 
 }

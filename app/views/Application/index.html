@@ -1,10 +1,18 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
+#{part part:'gpu', gpus: gpus, id:0 /}
 
-<form action="@{Application.sayHello()}" method="GET">
-    <input type="text" name="myName" />
-    <select size=6>
-        <option>ASUS</option>
-    </select>
-</form>
+<p>
+	<a id="createGPU" href="#">Create GPU</a>
+</p>
+
+<script type="text/javascript" charset="utf=8">
+$('#createGPU').click(function() {
+	$.post('@{createGPU()}', {name: prompt('GPU name ?')}, function(gpu) {
+	$('#gpulist').prepend(
+		'<option>'+gpu.name+'</option>'
+	)
+	}, 'json')
+});
+</script>
