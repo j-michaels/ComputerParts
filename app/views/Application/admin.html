@@ -1,0 +1,28 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<div id="gpueditor">
+	        #{ifnot gpus}
+			<p>
+				No GPUs
+			</p>
+			#{/ifnot}
+        	<select size="7" id="gpulist">
+        	
+        	#{list items:gpus, as:'gpu'}
+        		<option>${gpu.name}</option>
+        	#{/list}
+        	</select>
+        	
+        	
+</div>
+
+<script type="text/javascript" charset="utf=8">
+$("gpulist").onchange( function() {
+
+});
+$("gpueditor-delete").click( function() {
+	$.post('@{delete()}', {name: 
+}
+
+</script>
