@@ -13,14 +13,14 @@
         <div id="${_part}_list">
         	#{ifnot _data}
 			<p>
-				No GPUs
+				No data
 			</p>
 			#{/ifnot}
-        	<select size="7" id="gpulist">
+        	<select size="7" id="${_kind}list" onchange="selectionChanged${_kind}(this);">
         	
-        	#{list items:_data, as:'gpu'}
-        		<option>
-        			${gpu.name}
+        	#{list items:_data, as:'part'}
+        		<option value=${part.id}>
+        			${part.name}
         		</option>
         	#{/list}
         	</select>

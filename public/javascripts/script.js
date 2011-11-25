@@ -1,5 +1,24 @@
 var sections, current, lists, parts, selected;
 
+function removeFromOptionList(list, id) {
+	var optionlist = document.getElementById(list).options;
+	for (var i = 0; i<list.length; i++) {
+		if ((optionlist[i] != null) && (optionlist[i].value == id)) {
+			optionlist[i] = null;
+		}
+	}
+}
+
+function selectionChangedcpu(listElement) {
+	alert("test");
+}
+
+function selectionChangedgpu(listElement) {
+	var info = document.getElementById("");
+	
+	info.innerHTML = "
+}
+
 function initialize()
 {
 	
@@ -33,11 +52,11 @@ function initialize()
     
     showSection(0);
     
-    resetList(0);
-    resetList(1);
-    resetList(2);
-    resetList(3);
-    resetList(4);
+    //resetList(0);
+    //resetList(1);
+    //resetList(2);
+    //resetList(3);
+    //resetList(4);
 }
 
 function showSection(s)
