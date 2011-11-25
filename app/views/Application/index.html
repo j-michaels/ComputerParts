@@ -5,28 +5,41 @@
 
 <script type="text/javascript" charset="utf=8">
 
-function selectionChangedgpu(listElement) {
-	var info = document.getElementById("gpu_info");
+function selectionChangedGPU(listElement) {
 	var listAction = #{jsAction @infoForGPU(':id') /}
 	var ind = listElement.options[listElement.selectedIndex].value;
-	$('#gpu_info').load(listAction({id: ind}));
+	$('#GPU_info').load(listAction({id: ind}));
 }
+
+function selectionChangedCPU(listElement) {
+	var listAction = #{jsAction @infoForCPU(':id') /}
+	var ind = listElement.options[listElement.selectedIndex].value;
+	$('#CPU_info').load(listAction({id: ind}));
+}
+
+function selectionChangedRAM(listElement) {
+	var listAction = #{jsAction @infoForRAM(':id') /}
+	var ind = listElement.options[listElement.selectedIndex].value;
+	$('#RAM_info').load(listAction({id: ind}));
+}
+
+
 $(function() {
-	//$( "#tabs" ).tabs();
+	$("#tabs").tabs();
 });
+
 </script>
 
 #{current /}
-#{buttons /}
 <div id="tabs">
+	<ul>
 	<li><a href="#tabs-1">CPU</a></li>
-	<li><a href="#tabs-2">CPU</a></li>
-	<li><a href="#tabs-3">CPU</a></li>
-	#{part part:'cpu', data: cpus, id:1, kind:'cpu' /}
-	#{part part:'ram', data: ram, id:2, kind:'ram'/}
-	#{part part:'gpu', data: gpus, id:3, kind:'gpu' /}
+	<li><a href="#tabs-2">RAM</a></li>
+	<li><a href="#tabs-3">GPU</a></li>
+	</ul>
+	#{part part:'CPU', data: cpus, id:1 /}
+	#{part part:'RAM', data: ram, id:2 /}
+	#{part part:'GPU', data: gpus, id:3 /}
 </div>
-
-#{auto_select /}
 
 #{add_section /}

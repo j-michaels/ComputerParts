@@ -30,6 +30,20 @@ public class Application extends Controller {
     	renderJSON(cpu);
     }
     
+    public static void infoForCPU(long id) {
+    	System.out.println("infoForCPU: "+id);
+    	CPU cpu = CPU.findById(id);
+    	
+    	render(cpu);
+    }
+    
+    public static void infoForRAM(long id) {
+    	System.out.println("infoForRAM: "+id);
+    	RAM ram = RAM.findById(id);
+    	
+    	render(ram);
+    }
+    
     public static void infoForGPU(long id) {
     	System.out.println("infoForGPU: "+id);
     	GPU gpu = GPU.findById(id);

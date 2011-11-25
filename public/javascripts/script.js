@@ -13,8 +13,6 @@ function selectionChangedcpu(listElement) {
 	alert("test");
 }
 
-
-
 function initialize()
 {
 	

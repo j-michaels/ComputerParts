@@ -1,4 +1,4 @@
-<div id="${_part}" style="display:none">
+<div id="tabs-${_id}">
   <table border="1">
     <tr>
       <td valign="top">
@@ -18,7 +18,7 @@
 				No data
 			</p>
 			#{/ifnot}
-        	<select size="7" id="${_kind}list" onchange="selectionChanged${_kind}(this);">
+        	<select size="7" id="${_part}list" onchange="selectionChanged${_part}(this);">
         	
         	#{list items:_data, as:'part'}
         		<option value=${part.id}>
