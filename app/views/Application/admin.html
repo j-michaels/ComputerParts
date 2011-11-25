@@ -2,27 +2,75 @@
 #{set title:'Home' /}
 
 <div id="gpueditor">
+	<div>GPU List:</div>
 	        #{ifnot gpus}
 			<p>
 				No GPUs
 			</p>
 			#{/ifnot}
-        	<select size="7" id="gpulist">
+        	<select size="8" id="gpulist">
         	
         	#{list items:gpus, as:'gpu'}
-        		<option>${gpu.name}</option>
+        		<option value="${gpu.id}">${gpu.name}</option>
         	#{/list}
         	</select>
         	
+        	<p>
+        		<a href="#" id="gpueditor_delete">Delete</a>
+        		<a href="#" id="gpueditor_create">Create</a>
+        	</p>
+</div>
+
+<div id="gpueditor">
+	<div>CPU List:</div>
+	        #{ifnot cpus}
+			<p>
+				No CPUs
+			</p>
+			#{/ifnot}
+			#{if cpus}
+        	<select size="8" id="gpulist">
         	
+        	#{list items:cpus, as:'cpu'}
+        		<option value="${cpu.id}">${cpu.name}</option>
+        	#{/list}
+        	</select>
+        	
+        	<p>
+        		<a href="#" id="cpueditor_delete">Delete</a>
+        		<a href="#" id="cpueditor_create">Create</a>
+        	</p>
+        	#{/if}
 </div>
 
 <script type="text/javascript" charset="utf=8">
-$("gpulist").onchange( function() {
-
-});
-$("gpueditor-delete").click( function() {
-	$.post('@{delete()}', {name: 
+function removeFromOptionList(list, id) {
+	var optionlist = document.getElementById(list).options;
+	for (var i = 0; i<list.length; i++) {
+		if ((optionlist[i] != null) && (optionlist[i].value == id)) {
+			optionlist[i] = null;
+		}
+	}
 }
-
+function selectListCurrent(listid) {
+	var listid = document.getElementById(listid);
+	
+	return listid.options[listid.selectedIndex].value;
+}
+$('#gpueditor_delete').click(
+	function() {
+		var gl = document.getElementById("gpulist");
+		var ind = gl.options[gl.selectedIndex].value;
+		$.post('@{deletegpu()}', {id: ind},
+		function() {
+			removeFromOptionList("gpulist", ind);
+		}, 'json');
+	});
+	$('#gpueditor_create').click(
+	function() {
+		$.post('@{createGPU()}', {name: prompt('GPU name ?')},
+		function(gpu) {
+			$('#gpulist').prepend('<option value="' +gpu.id + '">'+gpu.name+'</option>')
+		}, 'json')
+	});
 </script>

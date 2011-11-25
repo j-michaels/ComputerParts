@@ -1,18 +1,14 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
+#{set onload:'initialize();' /}
+#{script 'script.js' /}
 
-#{part part:'gpu', gpus: gpus, id:0 /}
+#{current /}
+#{buttons /}
+#{part part:'cpu', data: cpus, id:0 /}
+#{part part:'ram', data: ram, id:1 /}
+#{part part:'gpu', data: gpus, id:2 /}
 
-<p>
-	<a id="createGPU" href="#">Create GPU</a>
-</p>
+#{auto_select /}
 
-<script type="text/javascript" charset="utf=8">
-$('#createGPU').click(function() {
-	$.post('@{createGPU()}', {name: prompt('GPU name ?')}, function(gpu) {
-	$('#gpulist').prepend(
-		'<option>'+gpu.name+'</option>'
-	)
-	}, 'json')
-});
-</script>
+#{add_section /}

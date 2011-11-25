@@ -30,10 +30,24 @@ public class Application extends Controller {
     	renderJSON(cpu);
     }
     
+    public static void deletegpu(long id) {
+    	System.out.println("Deleting "+id);
+    	GPU gpu = GPU.findById(id);
+    	gpu.delete();
+    	/*for (long i =0; i<6;i++) {
+    		GPU g = GPU.findById(i);
+    		if (g == null) {
+    			System.out.println("Missing: "+i);
+    		} else {
+    			System.out.println("GPU id: "+g.id + "; name: "+g.name);
+    		}
+    	}*/
+    }
+    
     public static void createGPU(String name) {
+    	System.out.println("foobar");
     	GPU gpu = new GPU(name);
     	gpu.save();
-    	System.out.println("Test");
     	renderJSON(gpu);
     }
     

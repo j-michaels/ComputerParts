@@ -1,4 +1,4 @@
-<div id="${_part}" style="">
+<div id="${_part}" style="display:none">
   <table border="1">
     <tr>
       <td valign="top">
@@ -11,14 +11,14 @@
       </td>
       <td>
         <div id="${_part}_list">
-        	#{ifnot _gpus}
+        	#{ifnot _data}
 			<p>
 				No GPUs
 			</p>
 			#{/ifnot}
         	<select size="7" id="gpulist">
         	
-        	#{list items:_gpus, as:'gpu'}
+        	#{list items:_data, as:'gpu'}
         		<option>
         			${gpu.name}
         		</option>
