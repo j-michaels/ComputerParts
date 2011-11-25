@@ -30,6 +30,13 @@ public class Application extends Controller {
     	renderJSON(cpu);
     }
     
+    public static void infoForGPU(long id) {
+    	System.out.println("infoForGPU: "+id);
+    	GPU gpu = GPU.findById(id);
+    	
+    	render(gpu);
+    }
+    
     public static void deletegpu(long id) {
     	System.out.println("Deleting "+id);
     	GPU gpu = GPU.findById(id);

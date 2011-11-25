@@ -13,11 +13,7 @@ function selectionChangedcpu(listElement) {
 	alert("test");
 }
 
-function selectionChangedgpu(listElement) {
-	var info = document.getElementById("");
-	
-	info.innerHTML = "
-}
+
 
 function initialize()
 {

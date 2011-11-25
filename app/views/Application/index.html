@@ -3,11 +3,29 @@
 #{set onload:'initialize();' /}
 #{script 'script.js' /}
 
+<script type="text/javascript" charset="utf=8">
+
+function selectionChangedgpu(listElement) {
+	var info = document.getElementById("gpu_info");
+	var listAction = #{jsAction @infoForGPU(':id') /}
+	var ind = listElement.options[listElement.selectedIndex].value;
+	$('#gpu_info').load(listAction({id: ind}));
+}
+$(function() {
+	//$( "#tabs" ).tabs();
+});
+</script>
+
 #{current /}
 #{buttons /}
-#{part part:'cpu', data: cpus, id:0, kind:'cpu' /}
-#{part part:'ram', data: ram, id:1, kind:'ram'/}
-#{part part:'gpu', data: gpus, id:2, kind:'gpu' /}
+<div id="tabs">
+	<li><a href="#tabs-1">CPU</a></li>
+	<li><a href="#tabs-2">CPU</a></li>
+	<li><a href="#tabs-3">CPU</a></li>
+	#{part part:'cpu', data: cpus, id:1, kind:'cpu' /}
+	#{part part:'ram', data: ram, id:2, kind:'ram'/}
+	#{part part:'gpu', data: gpus, id:3, kind:'gpu' /}
+</div>
 
 #{auto_select /}
 

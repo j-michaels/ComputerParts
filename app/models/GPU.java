@@ -9,6 +9,7 @@ import play.*;
 @Entity
 public class GPU extends Model {
 	public String name;
+	public String brand;
     public String requires;
     
     public GPU(String name) {
