@@ -9,6 +9,8 @@ import play.*;
 @Entity
 public class RAM extends Model {
 	public int speed;
+	public int amount;
+	public String requires;
 	public String model;
 	public String brand;
 }

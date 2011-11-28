@@ -4,17 +4,17 @@ import java.util.*;
 import javax.persistence.*;
 
 import play.db.jpa.*;
+import play.*;
 import play.data.validation.*;
 
 @Entity
-public class Motherboard extends Model {
+public class HDD extends Model {
 	@Required
-    public String name;
+	public int capacity;
+	
+	@Required
+	public String name;
+	
 	@Required
 	public String brand;
-	@Required
-    public String provides;
-    
-    public String other;
-    
 }

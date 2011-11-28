@@ -26,10 +26,20 @@
         		</option>
         	#{/list}
         	</select>
+        	
         </div>
+        #{if _admin}
+        <div id="${_part}_admin_panel">
+        	<p>
+        		<a href="#" id="${_part}editor_delete">Delete</a>
+        		<a href="#" id="${_part}editor_create">Create</a>
+        	</p>
+        </div>
+        #{/if}
       </td>
       <td align="center">
         <strong>Options</strong> <br />
+       	
         <table>
           <tr valign="top">
             <td>
