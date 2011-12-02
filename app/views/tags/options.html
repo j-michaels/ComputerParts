@@ -1,0 +1,147 @@
+#{if _part == "CPU"}
+<table cellspacing="10">
+  <tr valign="top">
+    <td>
+      Manufacturer <br />
+      <input type="checkbox" name="cpu_manufacturer" />Intel <br />
+      <input type="checkbox" name="cpu_manufacturer" />AMD <br />
+    </td>
+    <td>
+      Cores <br />
+      <input type="radio" name="cpu_cores" />&gt;=1 <br />
+      <input type="radio" name="cpu_cores" />&gt;=2 <br />
+
+      <input type="radio" name="cpu_cores" />&gt;=4 <br />
+    </td>
+    <td>
+      Speed <br />
+      <input type="radio" name="cpu_speed" />&gt;=2.0GHz <br />
+      <input type="radio" name="cpu_speed" />&gt;=2.4GHz <br />
+      <input type="radio" name="cpu_speed" />&gt;=2.8GHz <br />
+
+      <input type="radio" name="cpu_speed" />&gt;=3.2GHz <br />
+    </td>
+  </tr>
+
+</table>
+#{/if}
+
+#{elseif _part == "RAM"}
+<table cellspacing="10">
+  <tr valign="top">
+    <td> 
+      Manufacturer <br />
+      <input type="checkbox" name="ram_manufacturer" />Corsair <br />
+      <input type="checkbox" name="ram_manufacturer" />Crucial <br />
+      <input type="checkbox" name="ram_manufacturer" />Kingston <br />
+    </td>
+    <td>
+      Capacity <br />
+      <input type="radio" name="ram_capacity" />1GB <br />
+      <input type="radio" name="ram_capacity" />2GB <br />
+      <input type="radio" name="ram_capacity" />4GB <br />
+      <input type="radio" name="ram_capacity" />8GB <br />
+    </td>
+    <td>
+      Speed <br />
+      <input type="radio" name="ram_speed" />DDR3 1066 <br />
+      <input type="radio" name="ram_speed" />DDR3 1333 <br />
+      <input type="radio" name="ram_speed" />DDR3 1600 <br />
+    </td>
+  </tr>
+</table>
+#{/elseif}
+
+#{elseif _part == "GPU"}
+  <table cellspacing="10">
+    <tr valign="top">
+      <td>
+        Manufacturer <br />
+        <input type="checkbox" name="gpu_manufacturer" />ASUS <br />
+        <input type="checkbox" name="gpu_manufacturer" />GIGABYTE <br />
+        <input type="checkbox" name="gpu_manufacturer" />EVGA <br />
+      </td>
+      <td>
+        Video RAM <br />
+        <input type="checkbox" name="gpu_ram" />512MB <br />
+        <input type="checkbox" name="gpu_ram" />1GB <br />
+        <input type="checkbox" name="gpu_ram" />2GB <br />
+      </td>
+    </tr>
+  </table>
+#{/elseif}
+
+#{elseif _part == "HD"}
+<script>
+  function hdOptions(arg)
+  {
+    if (arg == 1) {
+        document.getElementById("hdd").style.display = '';
+        document.getElementById("ssd").style.display = 'none';
+    } else if (arg == 2) {
+        document.getElementById("hdd").style.display = 'none';
+        document.getElementById("ssd").style.display = '';
+    }
+  }
+</script>
+<input type="radio" name="hd_ssd" onchange="hdOptions(1);" />HDD &nbsp;
+<input type="radio" name="hd_ssd" onchange="hdOptions(2);" />SSD
+<div id="hdd" style="display:none">
+  <table cellspacing="10">
+    <tr valign="top">
+      <td>
+        Manufacturer <br />
+        <input type="checkbox" name="hd_manufacturer" />Western Digital <br />
+        <input type="checkbox" name="hd_manufacturer" />Seagate <br />
+      </td>
+      <td>
+        Capacity <br />
+        <input type="radio" name="hd_capacity" />&lt;500GB <br />
+        <input type="radio" name="hd_capacity" />&gt;=500GB <br />
+        <input type="radio" name="hd_capacity" />&gt;=750GB <br />
+        <input type="radio" name="hd_capacity" />&gt;=1TB <br />
+      </td>
+      <td>
+        Interface <br />
+        <input type="checkbox" name="hd_interface" />SATA 3Gb/s <br />
+        <input type="checkbox" name="hd_interface" />SATA 6Gb/s <br />
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div id="ssd" style="display:none">
+  <table cellspacing="10">
+    <tr valign="top">
+      <td>
+        Manufacturer <br />
+        <input type="checkbox" name="hd_manufacturer" />OCZ <br />
+        <input type="checkbox" name="hd_manufacturer" />Crucial <br />
+      </td>
+      <td>
+        Capacity <br />
+        <input type="radio" name="hd_capacity" />&lt;64GB <br />
+        <input type="radio" name="hd_capacity" />&gt;=64GB <br />
+        <input type="radio" name="hd_capacity" />&gt;=120GB <br />
+      </td>
+      <td>
+        Interface <br />
+        <input type="checkbox" name="hd_interface" />SATA III <br />
+      </td>
+    </tr>
+  </table>
+</div>
+#{/elseif}
+
+#{elseif _part == "MB"}
+  <table cellspacing="10">
+    <tr valign="top">
+      <td>
+        Manufacturer <br />
+        <input type="checkbox" name="mb_manufacturer" />ASUS <br />
+        <input type="checkbox" name="mb_manufacturer" />GIGABYTE <br />
+        <input type="checkbox" name="mb_manufacturer" />MSI <br />
+      </td>
+    </tr>
+  </table>
+#{/elseif}

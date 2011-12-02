@@ -13,57 +13,49 @@
       </td>
       <td>
         <div id="${_part}_list">
-        	#{ifnot _data}
-			<p>
-				No data
-			</p>
-			#{/ifnot}
-        	<select size="7" id="${_part}list" onchange="selectionChanged${_part}(this);">
-        	
-        	#{list items:_data, as:'part'}
-        		<option value=${part.id}>
-        			${part.name}
-        		</option>
-        	#{/list}
-        	</select>
+            #{ifnot _data}
+            <p>
+                No data
+            </p>
+            #{/ifnot}
+            <select size="7" id="${_part}list" onchange="selectionChanged(${_id}, this);">
+
+            #{list items:_data, as:'part'}
+                <option value=${part.id}>
+                    ${part.name}
+                </option>
+            #{/list}
+            </select>
+
         </div>
         #{if _admin}
         <div id="${_part}_admin_panel">
-        	<p>
-        		<a href="#" id="${_part}editor_delete">Delete</a>
-        		<a href="#" id="${_part}editor_create">Create</a>
-        	</p>
+            <p>
+                <a href="#" id="${_part}editor_delete">Delete</a>
+                <a href="#" id="${_part}editor_create">Create</a>
+            </p>
         </div>
         #{/if}
       </td>
-      <td align="center">
-        <strong>Options</strong> <br />
-       	
+      <td valign="top">
         <table>
-          <tr valign="top">
-            <td>
-              Manufacturer <br />
-              <input type="checkbox" name="cpu_manufacturer" />Intel <br />
-              <input type="checkbox" name="cpu_manufacturer" />AMD <br />
+          <tr>
+            <td align="center">
+              <strong>Options</strong> <br />
             </td>
+          </tr>
+          <tr align="center">
             <td>
-              Cores <br />
-              <input type="radio" name="cpu_cores" />&gt;=1 <br />
-              <input type="radio" name="cpu_cores" />&gt;=2 <br />
-              <input type="radio" name="cpu_cores" />&gt;=4 <br />
+              #{options part:"${_part}" /}
             </td>
-            <td>
-              Speed <br />
-              <input type="radio" name="cpu_speed" />&gt;=2.0GHz <br />
-              <input type="radio" name="cpu_speed" />&gt;=2.4GHz <br />
-              <input type="radio" name="cpu_speed" />&gt;=2.8GHz <br />
-              <input type="radio" name="cpu_speed" />&gt;=3.2GHz <br />
+          </tr>
+          <tr>
+            <td align="center">
+              <button type="button" id="commit_${_part}" onclick="updateList(${_id})">Commit</button>
+              <button type="button" id="reset_${_part}" onclick="resetList(${_id})">Reset</button>
             </td>
           </tr>
         </table>
-        <br />
-        <button type="button" id="commit_${_part}" onclick="updateList(${_id})">Commit</button>
-        <button type="button" id="reset_${_part}" onclick="resetList(${_id})">Reset</button>
       </td>
     </tr>
   </table>

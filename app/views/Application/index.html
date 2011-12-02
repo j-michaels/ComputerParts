@@ -1,33 +1,42 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
-#{set onload:'initialize();' /}
-#{script 'script.js' /}
 
 <script type="text/javascript" charset="utf=8">
+    $(function() {
+        $("#tabs").tabs();
+    });
 
-function selectionChangedGPU(listElement) {
-	var listAction = #{jsAction @infoForGPU(':id') /}
-	var ind = listElement.options[listElement.selectedIndex].value;
-	$('#GPU_info').load(listAction({id: ind}));
-}
-
-function selectionChangedCPU(listElement) {
-	var listAction = #{jsAction @infoForCPU(':id') /}
-	var ind = listElement.options[listElement.selectedIndex].value;
-	$('#CPU_info').load(listAction({id: ind}));
-}
-
-function selectionChangedRAM(listElement) {
-	var listAction = #{jsAction @infoForRAM(':id') /}
-	var ind = listElement.options[listElement.selectedIndex].value;
-	$('#RAM_info').load(listAction({id: ind}));
-}
-
-$(function() {
-	$("#tabs").tabs();
-	
-});
-
+    function selectionChanged(part_id, listElement)
+    {
+        switch(part_id)
+        {
+            case 1:
+                var listAction = #{jsAction @infoForGPU(':id') /}
+                var ind = listElement.options[listElement.selectedIndex].value;
+                $('#CPU_info').load(listAction({id: ind}));
+                break;
+            case 2:
+                var listAction = #{jsAction @infoForGPU(':id') /}
+                var ind = listElement.options[listElement.selectedIndex].value;
+                $('#RAM_info').load(listAction({id: ind}));
+                break;
+            case 3:
+                var listAction = #{jsAction @infoForGPU(':id') /}
+                var ind = listElement.options[listElement.selectedIndex].value;
+                $('#GPU_info').load(listAction({id: ind}));
+                break;
+            case 4:
+                var listAction = #{jsAction @infoForGPU(':id') /}
+                var ind = listElement.options[listElement.selectedIndex].value;
+                $('#HD_info').load(listAction({id: ind}));
+                break;
+            case 5:
+                var listAction = #{jsAction @infoForGPU(':id') /}
+                var ind = listElement.options[listElement.selectedIndex].value;
+                $('MB_info').load(listAction({id: ind}));
+                break;
+        }
+    }
 </script>
 
 #{current /}
@@ -36,10 +45,14 @@ $(function() {
 	<li><a href="#tabs-1">CPU</a></li>
 	<li><a href="#tabs-2">RAM</a></li>
 	<li><a href="#tabs-3">GPU</a></li>
+	<li><a href="#tabs-4">HD</a></li>
+	<li><a href="#tabs-5">MB</a></li>
 	</ul>
 	#{part part:'CPU', data: cpus, id:1 /}
-	#{part part:'RAM', data: ram, id:2 /}
+	#{part part:'RAM', data: rams, id:2 /}
 	#{part part:'GPU', data: gpus, id:3 /}
+	#{part part:'HD', data: hds, id:4 /}
+	#{part part:'MB', data: mbs, id:5 /}
 </div>
 
 #{add_section /}
