@@ -3,13 +3,20 @@ package models;
 import java.util.*;
 import javax.persistence.*;
 
+import play.data.validation.*;
 import play.db.jpa.*;
 import play.*;
 
 @Entity
 public class CPU extends Model {
+	@ManyToOne
+	public Build build;
+	
+	@Required
 	public String name;
+	@Required
 	public String brand;
+	@Required
 	public int numCores;
 	public double speed;
 	
@@ -19,4 +26,5 @@ public class CPU extends Model {
 		this.numCores = cores;
 		this.speed = speed;
 	}
+	
 }

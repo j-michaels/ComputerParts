@@ -1,48 +1,6 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-<div id="gpueditor">
-	<div>GPU List:</div>
-	        #{ifnot gpus}
-			<p>
-				No GPUs
-			</p>
-			#{/ifnot}
-        	<select size="8" id="gpulist">
-        	
-        	#{list items:gpus, as:'gpu'}
-        		<option value="${gpu.id}">${gpu.name}</option>
-        	#{/list}
-        	</select>
-        	
-        	<p>
-        		<a href="#" id="gpueditor_delete">Delete</a>
-        		<a href="#" id="gpueditor_create">Create</a>
-        	</p>
-</div>
-
-<div id="gpueditor">
-	<div>CPU List:</div>
-	        #{ifnot cpus}
-			<p>
-				No CPUs
-			</p>
-			#{/ifnot}
-			#{if cpus}
-        	<select size="8" id="gpulist">
-        	
-        	#{list items:cpus, as:'cpu'}
-        		<option value="${cpu.id}">${cpu.name}</option>
-        	#{/list}
-        	</select>
-        	
-        	<p>
-        		<a href="#" id="cpueditor_delete">Delete</a>
-        		<a href="#" id="cpueditor_create">Create</a>
-        	</p>
-        	#{/if}
-</div>
-
 <script type="text/javascript" charset="utf=8">
 
 function selectListCurrent(listid) {

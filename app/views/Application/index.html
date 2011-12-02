@@ -5,25 +5,130 @@
     $(function() {
         $("#tabs").tabs();
     });
+    
+    #{if _admin}
+    
+    
+    #{/if}
+    
+    // This function creates a standard table with column/rows
+    // Parameter Information
+    // objArray = Anytype of object array, like JSON results
+    // theme (optional) = A css class to add to the table (e.g. <table class="<theme>">
+    // enableHeader (optional) = Controls if you want to hide/show, default is show
+    function CreateTableView(objArray, theme, enableHeader) {
+        // set optional theme parameter
+        if (theme === undefined) {
+            theme = 'mediumTable'; //default theme
+        }
+
+        if (enableHeader === undefined) {
+            enableHeader = true; //default enable headers
+        }
+
+        // If the returned data is an object do nothing, else try to parse
+        var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+
+        var str = '<table class="' + theme + '">';
+
+        // table head
+        if (enableHeader) {
+            str += '<thead><tr>';
+            for (var index in array[0]) {
+                str += '<th scope="col">' + index + '</th>';
+            }
+            str += '</tr></thead>';
+        }
+
+        // table body
+        str += '<tbody>';
+        for (var i = 0; i < array.length; i++) {
+            str += (i % 2 == 0) ? '<tr class="alt">' : '<tr>';
+            for (var index in array[i]) {
+                str += '<td>' + array[i][index] + '</td>';
+            }
+            str += '</tr>';
+        }
+        str += '</tbody>'
+        str += '</table>';
+        return str;
+    }
+
+    // This function creates a details view table with column 1 as the header and column 2 as the details
+    // Parameter Information
+    // objArray = Anytype of object array, like JSON results
+    // theme (optional) = A css class to add to the table (e.g. <table class="<theme>">
+    // enableHeader (optional) = Controls if you want to hide/show, default is show
+    function CreateDetailView(objArray, theme, enableHeader) {
+        // set optional theme parameter
+        if (theme === undefined) {
+            theme = 'mediumTable';  //default theme
+        }
+
+        if (enableHeader === undefined) {
+            enableHeader = true; //default enable headers
+        }
+
+        // If the returned data is an object do nothing, else try to parse
+        var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+
+        var str = '<table class="' + theme + '">';
+        str += '<tbody>';
+
+        for (var i = 0; i < array.length; i++) {
+            var row = 0;
+            for (var index in array[i]) {
+                str += (row % 2 == 0) ? '<tr class="alt">' : '<tr>';
+
+                if (enableHeader) {
+                    str += '<th scope="row">' + index + '</th>';
+                }
+
+                str += '<td>' + array[i][index] + '</td>';
+                str += '</tr>';
+                row++;
+            }
+        }
+        str += '</tbody>'
+        str += '</table>';
+        return str;
+    }
 
     function selectionChanged(part_id, listElement)
     {
+        var listAction = #{jsAction @infoPanel(':part', ':id') /};
+        var ind = listElement.options[listElement.selectedIndex].value;
+        $.get(listAction({part: part_id, id: ind}), function(data) {
+            $("#"+part_id+"_info").html(CreateDetailView([data]));
+        });
+        /*
         switch(part_id)
         {
             case 1:
-                var listAction = #{jsAction @infoForGPU(':id') /}
+                //var listAction = #{jsAction @infoForGPU(':id') /}
                 var ind = listElement.options[listElement.selectedIndex].value;
-                $('#CPU_info').load(listAction({id: ind}));
+                var listAction = #{jsAction @infoPanel(':part', ':id') /};
+                $('#CPU_info').html(CreateTableView(listAction({part: "CPU", id: ind})));
+                //$('#CPU_info').load(listAction({id: ind}));
                 break;
             case 2:
-                var listAction = #{jsAction @infoForGPU(':id') /}
+                //var listAction = #{jsAction @infoForGPU(':id') /}
                 var ind = listElement.options[listElement.selectedIndex].value;
-                $('#RAM_info').load(listAction({id: ind}));
+                //var listAction = #{jsAction @infoPanel(':part', ':id') /};
+                var listAction = #{jsAction @testAction() /} ;
+                //alert("test");
+                $.get(listAction({}), function(data) {
+                    $('#GPU_info').html(CreateDetailView([data]));
+                });
+                //$('#GPU_info').load(listAction());
+                //$('#RAM_info').load(listAction({id: ind}));
                 break;
             case 3:
-                var listAction = #{jsAction @infoForGPU(':id') /}
+                //var listAction = #{jsAction @infoForGPU(':id') /}
                 var ind = listElement.options[listElement.selectedIndex].value;
-                $('#GPU_info').load(listAction({id: ind}));
+                var listAction = #{jsAction @infoPanel(':part', ':id') /};
+                $('#RAM_info').html(CreateTableView(listAction({part: "RAM", id: ind})));
+                //$('#GPU_info').load(listAction({id: ind}));
                 break;
             case 4:
                 var listAction = #{jsAction @infoForGPU(':id') /}
@@ -35,7 +140,7 @@
                 var ind = listElement.options[listElement.selectedIndex].value;
                 $('MB_info').load(listAction({id: ind}));
                 break;
-        }
+        }*/
     }
 </script>
 
@@ -43,16 +148,45 @@
 <div id="tabs">
 	<ul>
 	<li><a href="#tabs-1">CPU</a></li>
-	<li><a href="#tabs-2">RAM</a></li>
-	<li><a href="#tabs-3">GPU</a></li>
+	<li><a href="#tabs-2">GPU</a></li>
+	<li><a href="#tabs-3">RAM</a></li>
 	<li><a href="#tabs-4">HD</a></li>
-	<li><a href="#tabs-5">MB</a></li>
+	<li><a href="#tabs-5">Motherboard</a></li>
+	<li><a href="#tabs-6">PSU</a></li>
 	</ul>
 	#{part part:'CPU', data: cpus, id:1 /}
-	#{part part:'RAM', data: rams, id:2 /}
-	#{part part:'GPU', data: gpus, id:3 /}
+	#{part part:'GPU', data: gpus, id:2 /}
+	#{part part:'RAM', data: rams, id:3 /}
 	#{part part:'HD', data: hds, id:4 /}
 	#{part part:'MB', data: mbs, id:5 /}
+	#{part part:'PSU', data: psus, id:6 /}
 </div>
+
+#{if _admin}
+<script type="text/javascript" charset="utf=8">
+
+function selectListCurrent(listid) {
+	var listid = document.getElementById(listid);
+	
+	return listid.options[listid.selectedIndex].value;
+}
+$('#gpueditor_delete').click(
+	function() {
+		var gl = document.getElementById("gpulist");
+		var ind = gl.options[gl.selectedIndex].value;
+		$.post('@{deletegpu()}', {id: ind},
+		function() {
+			removeFromOptionList("gpulist", ind);
+		}, 'json');
+	});
+	$('#gpueditor_create').click(
+	function() {
+		$.post('@{createGPU()}', {name: prompt('GPU name ?')},
+		function(gpu) {
+			$('#gpulist').prepend('<option value="' +gpu.id + '">'+gpu.name+'</option>')
+		}, 'json')
+	});
+</script>
+#{/if}
 
 #{add_section /}

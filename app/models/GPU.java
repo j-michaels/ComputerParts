@@ -2,9 +2,10 @@ package models;
 
 import java.util.*;
 import javax.persistence.*;
-
+import play.data.validation.*;
 import play.db.jpa.*;
 import play.*;
+
 
 @Entity
 public class GPU extends Model {
