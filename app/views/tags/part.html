@@ -4,11 +4,7 @@
       <td valign="top">
         <strong>Current selection information</strong> <br />
         <div id="${_part}_info">
-        Model: AAAAA <br />
-        Manufacturer: BBBBB <br />
-        Cores: CCCCC <br />
-        Speed: DDDDD <br />
-        Cache: EEEEE <br />
+            <p>No selection</p>
         </div>
       </td>
       <td>
@@ -18,7 +14,7 @@
                 No data
             </p>
             #{/ifnot}
-            <select size="7" id="${_part}list" onchange="selectionChanged(${_id}, this);">
+            <select size="7" id="${_part}list" onchange="selectionChanged('${_part}', this);">
 
             #{list items:_data, as:'part'}
                 <option value=${part.id}>
