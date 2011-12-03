@@ -1,0 +1,10 @@
+CPU(INTEL1):
+    numCores: 2
+    name: Intel i7
+    speed: 2.5
+    brand: Intel
+CPU(LOL1):
+    numCores: 42
+    name: LOL i9000
+    speed: 1.0
+    brand: LOL Inc
