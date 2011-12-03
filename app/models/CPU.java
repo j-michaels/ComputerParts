@@ -27,4 +27,5 @@ public class CPU extends Model {
 		this.speed = speed;
 	}
 	
+	
 }

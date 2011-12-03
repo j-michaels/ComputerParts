@@ -1,2 +1,9 @@
-tmp
 eclipse
+.settings
+.project
+.classpath
+db
+test-result
+.DS_Store
+flexjson-2.1
+tmp

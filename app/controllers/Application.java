@@ -72,6 +72,7 @@ public class Application extends Controller {
     }
 
     public static void currentBuild(long id) {
+    	System.out.println("Looking at current build");
     	String json = "";
     	JSONSerializer serializer = new JSONSerializer();
     	serializer.exclude("*.class", "id", "entityId", "persistent");
