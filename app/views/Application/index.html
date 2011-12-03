@@ -6,7 +6,7 @@
         $("#tabs").tabs();
     });
     
-    #{if _admin}
+    #{if admin}
     
     
     #{/if}
@@ -94,54 +94,37 @@
         return str;
     }
 
-    function selectionChanged(part_id, listElement)
-    {
+    function selectionChanged(part_id, listElement) {
         var listAction = #{jsAction @infoPanel(':part', ':id') /};
         var ind = listElement.options[listElement.selectedIndex].value;
         $.get(listAction({part: part_id, id: ind}), function(data) {
             $("#"+part_id+"_info").html(CreateDetailView([data]));
         });
-        /*
-        switch(part_id)
-        {
-            case 1:
-                //var listAction = #{jsAction @infoForGPU(':id') /}
-                var ind = listElement.options[listElement.selectedIndex].value;
-                var listAction = #{jsAction @infoPanel(':part', ':id') /};
-                $('#CPU_info').html(CreateTableView(listAction({part: "CPU", id: ind})));
-                //$('#CPU_info').load(listAction({id: ind}));
-                break;
-            case 2:
-                //var listAction = #{jsAction @infoForGPU(':id') /}
-                var ind = listElement.options[listElement.selectedIndex].value;
-                //var listAction = #{jsAction @infoPanel(':part', ':id') /};
-                var listAction = #{jsAction @testAction() /} ;
-                //alert("test");
-                $.get(listAction({}), function(data) {
-                    $('#GPU_info').html(CreateDetailView([data]));
-                });
-                //$('#GPU_info').load(listAction());
-                //$('#RAM_info').load(listAction({id: ind}));
-                break;
-            case 3:
-                //var listAction = #{jsAction @infoForGPU(':id') /}
-                var ind = listElement.options[listElement.selectedIndex].value;
-                var listAction = #{jsAction @infoPanel(':part', ':id') /};
-                $('#RAM_info').html(CreateTableView(listAction({part: "RAM", id: ind})));
-                //$('#GPU_info').load(listAction({id: ind}));
-                break;
-            case 4:
-                var listAction = #{jsAction @infoForGPU(':id') /}
-                var ind = listElement.options[listElement.selectedIndex].value;
-                $('#HD_info').load(listAction({id: ind}));
-                break;
-            case 5:
-                var listAction = #{jsAction @infoForGPU(':id') /}
-                var ind = listElement.options[listElement.selectedIndex].value;
-                $('MB_info').load(listAction({id: ind}));
-                break;
-        }*/
     }
+    
+    function getCurrentPartId(part) {
+        var listElement = document.getElementById(part+"list");
+        return listElement.options[listElement.selectedIndex].value;
+    }
+    function getCurrentBuildId() {
+        var listElement = document.getElementById("buildlist");
+        //alert(listElement.options[listElement.selectedIndex].value);
+        return listElement.options[listElement.selectedIndex].value;
+    }
+    
+    function removeFromOptionList(list, id) {
+    	var optionlist = document.getElementById(list).options;
+    	for (var i = 0; i<list.length; i++) {
+    		if ((optionlist[i] != null) && (optionlist[i].value == id)) {
+    			optionlist[i] = null;
+    		}
+    	}
+    }
+    function selectListCurrent(listid) {
+    	var listid = document.getElementById(listid);
+    	return listid.options[listid.selectedIndex].value;
+    }
+    
 </script>
 
 #{current /}
@@ -154,39 +137,14 @@
 	<li><a href="#tabs-5">Motherboard</a></li>
 	<li><a href="#tabs-6">PSU</a></li>
 	</ul>
-	#{part part:'CPU', data: cpus, id:1 /}
-	#{part part:'GPU', data: gpus, id:2 /}
-	#{part part:'RAM', data: rams, id:3 /}
-	#{part part:'HD', data: hds, id:4 /}
-	#{part part:'MB', data: mbs, id:5 /}
-	#{part part:'PSU', data: psus, id:6 /}
+	#{part part:'CPU', data: cpus, id:1, admin:admin /}
+	#{part part:'GPU', data: gpus, id:2, admin:admin /}
+	#{part part:'RAM', data: rams, id:3, admin:admin /}
+	#{part part:'HD', data: hds, id:4, admin:admin /}
+	#{part part:'MB', data: mbs, id:5, admin:admin /}
+	#{part part:'PSU', data: psus, id:6, admin:admin /}
 </div>
 
-#{if _admin}
-<script type="text/javascript" charset="utf=8">
-
-function selectListCurrent(listid) {
-	var listid = document.getElementById(listid);
-	
-	return listid.options[listid.selectedIndex].value;
-}
-$('#gpueditor_delete').click(
-	function() {
-		var gl = document.getElementById("gpulist");
-		var ind = gl.options[gl.selectedIndex].value;
-		$.post('@{deletegpu()}', {id: ind},
-		function() {
-			removeFromOptionList("gpulist", ind);
-		}, 'json');
-	});
-	$('#gpueditor_create').click(
-	function() {
-		$.post('@{createGPU()}', {name: prompt('GPU name ?')},
-		function(gpu) {
-			$('#gpulist').prepend('<option value="' +gpu.id + '">'+gpu.name+'</option>')
-		}, 'json')
-	});
-</script>
-#{/if}
+#{build builds:builds /}
 
 #{add_section /}

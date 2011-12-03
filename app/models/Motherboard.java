@@ -17,4 +17,7 @@ public class Motherboard extends Model {
     
     public String other;
     
+    public Motherboard(String name) {
+    	this.name = name;
+	}
 }

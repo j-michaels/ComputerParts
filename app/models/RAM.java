@@ -13,4 +13,9 @@ public class RAM extends Model {
 	public String requires;
 	public String model;
 	public String brand;
+	public String name;
+	
+	public RAM(String name) {
+    	this.name = name;
+	}
 }

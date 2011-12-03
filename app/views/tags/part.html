@@ -6,29 +6,32 @@
         <div id="${_part}_info">
             <p>No selection</p>
         </div>
+        <div>
+            <a href="#" id="${_part}_addtobuild">Add to Build</a>
+        </div>
       </td>
       <td>
-        <div id="${_part}_list">
+        <div id="${_part}_list" class="std_partlist">
             #{ifnot _data}
             <p>
                 No data
             </p>
             #{/ifnot}
-            <select size="7" id="${_part}list" onchange="selectionChanged('${_part}', this);">
-
+            <select size="7" id="${_part}list" class="std_partlist" onchange="selectionChanged('${_part}', this);">
+            #{if _data}
             #{list items:_data, as:'part'}
                 <option value=${part.id}>
                     ${part.name}
                 </option>
             #{/list}
+            #{/if}
             </select>
-
         </div>
-        #{if _admin}
+        #{if _admin==true}
         <div id="${_part}_admin_panel">
             <p>
-                <a href="#" id="${_part}editor_delete">Delete</a>
-                <a href="#" id="${_part}editor_create">Create</a>
+                <a href="#" id="${_part}_create">Create</a>
+                <a href="#" id="${_part}_delete">Delete</a>
             </p>
         </div>
         #{/if}
@@ -56,3 +59,34 @@
     </tr>
   </table>
 </div>
+
+#{if _admin}
+<script type="text/javascript" charset="utf=8">
+
+    $('#${_part}_delete').click(
+    	function() {
+    		var gl = document.getElementById("${_part}list");
+    		var ind = gl.options[gl.selectedIndex].value;
+    		$.post('@{delete()}', {part: '${_part}', id: ind},
+    		function() {
+    			removeFromOptionList("${_part}list", ind);
+    		}, 'json');
+    	});
+    $('#${_part}_create').click(
+    	function() {
+    		$.post('@{create()}', {part: '${_part}', name: prompt('${_part} name ?')},
+    		function(data) {
+    			$('#${_part}list').prepend('<option value="' +data.id + '">'+data.name+'</option>')
+    		}, 'json')
+    	});
+    $('#${_part}_addtobuild').click(function() {
+            var build_id = getCurrentBuildId();
+            var part_id = getCurrentPartId("${_part}");
+            var listAction = #{jsAction @changeBuild(':part', ':build_id', ':part_id') /};
+            $.post(listAction({part:"${_part}", build_id: build_id, part_id: part_id}), function(data) {
+                updateBuildView(data);
+            });
+       });
+
+</script>
+#{/if}

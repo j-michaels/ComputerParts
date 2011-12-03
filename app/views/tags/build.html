@@ -1,1 +1,127 @@
-<p>Selected Build</p>
+<div>
+    <p>Selected Build</p>
+    <table>
+        <tr>
+            <td>
+                <div class="std_partlist">
+                    <select size="7" id="buildlist" class="std_partlist" onchange="buildChanged(this);">
+                    #{if _builds}
+                    #{list items:_builds, as:'build'}
+                        <option value=${build.id}>
+                            ${build.name}
+                        </option>
+                    #{/list}
+                    #{/if}
+                    </select>
+                </div>
+                <div id="build_control_panel">
+                    <p>
+                        <a href="#" id="build_create">Create</a>
+                        <a href="#" id="build_delete">Delete</a>
+                    </p>
+                </div>
+            </td>
+            <td>
+                <div id="build_list1" class="build_panel">
+                    
+                </div>
+            </td>
+            <td>
+                <div id="build_list2" class="build_panel">
+                    
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script type="text/javascript" charset="utf=8">
+    function getCurrentBuild(func) {
+        var listElement = document.getElementById("buildlist");
+        var ind = listElement.options[listElement.selectedIndex].value;
+        var listAction = #{jsAction @currentBuild(':id') /};
+        $.get(listAction({id: ind}), func);
+    }
+
+    function buildChanged(listElement, build) {
+        if (build === undefined) {
+            getCurrentBuild(function(data) {
+                updateBuildView(data)
+            });
+        } else {
+            updateBuildView(build);
+        }
+    }
+    
+    function updateBuildView(build) {
+        // update two divs
+        var div1 = $('#build_list1');
+        if (build == null) {
+            div1.html("<p>No build selection</p>");
+        } else {
+            //alert("test");
+            var name = "<p>"+build.name+"</p>";
+            var cpu = "<p>no cpu selected</p>";
+            var gpu = "<p>no gpu selected</p>";
+            var ram = "<p>no ram selected</p>";
+            var mb = "<p>no motherboard selected</p>";
+            var hd = "<p>no hard drive selected</p>";
+            var psu = "<p>no psu selected</p>";
+            
+            if (build.cpu != null) {
+                cpu = "<p>CPU: " + build.cpu.name + "</p>";
+            }
+            if (build.gpu != null) {
+                gpu = "<p>GPU: " + build.gpu.name + "</p>";
+            }
+            if (build.ram != null) {
+                ram = "<p>RAM: " + build.ram.name + "</p>";
+            }
+            if (build.mb != null) {
+                mb = "<p>MB: " + build.mb.name + "</p>";
+            }
+            if (build.hd != null) {
+                hd = "<p>HD: " + build.hd.name + "</p>";
+            }
+            if (build.psu != null) {
+                psu = "<p>PSU: " + build.psu.name + "</p>";
+            }
+            div1.html(name+cpu+gpu+ram);
+            var div2 = $('#build_list2');
+            div2.html(mb+hd+psu);
+            
+        }
+    }
+    
+    function removeFromOptionList(list, id) {
+    	var optionlist = document.getElementById(list).options;
+    	for (var i = 0; i<list.length; i++) {
+    		if ((optionlist[i] != null) && (optionlist[i].value == id)) {
+    			optionlist[i] = null;
+    		}
+    	}
+    }
+    
+    function selectListCurrent(listid) {
+    	var listid = document.getElementById(listid);
+    	return listid.options[listid.selectedIndex].value;
+    }
+    
+    $('#build_delete').click(
+    	function() {
+    		var gl = document.getElementById("buildlist");
+    		var ind = gl.options[gl.selectedIndex].value;
+    		$.post('@{delete()}', {part: 'BUILD', id: ind},
+    		function() {
+    			removeFromOptionList("buildlist", ind);
+    		}, 'json');
+    	});
+    	
+    $('#build_create').click(
+    	function() {
+    		$.post('@{create()}', {part: 'BUILD', name: prompt('Build name?')},
+    		function(data) {
+    			$('#buildlist').prepend('<option value="' +data.id + '">'+data.name+'</option>')
+    		}, 'json')
+    	});
+</script>

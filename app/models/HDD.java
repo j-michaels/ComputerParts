@@ -17,4 +17,9 @@ public class HDD extends Model {
 	
 	@Required
 	public String brand;
+	
+	public HDD(String name) {
+    	this.name = name;
+    	this.brand = "ASUS";
+	}
 }

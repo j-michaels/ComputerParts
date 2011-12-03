@@ -9,17 +9,28 @@ import play.data.validation.*;
 
 @Entity
 public class Build extends Model {
-	@OneToMany
-	public List<GPU> gpus = new ArrayList();
+	@OneToOne
+	public GPU gpu; 
 	
 	@OneToOne
 	public CPU cpu;
 	
 	@OneToOne
-	public Motherboard mobo;
+	public RAM ram;
+	
+	@OneToOne
+	public Motherboard mb;
+	
+	@OneToOne
+	public PSU psu;
+	
+	@OneToOne
+	public HDD hd;
 	
 	@Required
 	public String name;
+
+	public int numRam;
 	
 	public Build(String name) {
 		this.name = name;

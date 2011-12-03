@@ -17,6 +17,7 @@ public class PSU extends Model {
 	
 	@Required
 	public String name;
-	
-	
+	public PSU(String name) {
+    	this.name = name;
+	}
 }

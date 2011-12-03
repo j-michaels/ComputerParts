@@ -7,30 +7,33 @@ import java.util.*;
 
 import flexjson.JSONSerializer;
 import models.*;
-/*
-enum Panel {
-	CPU, GPU, RAM, HD, MB, PSU
-}*/
 
 public class Application extends Controller {
 	public static enum Panel {
-		CPU, GPU, RAM, HD, MB, PSU
+		CPU, GPU, RAM, HD, MB, PSU, BUILD
 	}
 	
     public static void index() {
     	List builds = Build.find("order by name desc").fetch();
         List gpus = GPU.find("order by name desc").fetch();
         List cpus = CPU.find("order by name desc").fetch();
-        List mobos = Motherboard.find("order by name desc").fetch();
-        render(gpus, cpus, mobos, builds);
+        List mbs = Motherboard.find("order by name desc").fetch();
+        List rams = RAM.find("order by name desc").fetch();
+        List psus = PSU.find("order by name desc").fetch();
+        List hds = HDD.find("order by name desc").fetch();
+        render(gpus, cpus, rams, psus, mbs, hds, builds);
     }
     
     public static void admin() {
     	List builds = Build.find("order by name desc").fetch();
         List gpus = GPU.find("order by name desc").fetch();
         List cpus = CPU.find("order by name desc").fetch();
-        List mobos = Motherboard.find("order by name desc").fetch();
-        renderTemplate("Application.html", gpus, cpus, mobos, builds);
+        List mbs = Motherboard.find("order by name desc").fetch();
+        List rams = RAM.find("order by name desc").fetch();
+        List psus = PSU.find("order by name desc").fetch();
+        List hds = HDD.find("order by name desc").fetch();
+        boolean admin = true;
+        renderTemplate("Application/index.html", gpus, cpus, rams, mbs, psus, hds, builds, admin);
     }
     
     public static void createCPU(String name, String brand, int cores, double speed) {
@@ -38,17 +41,11 @@ public class Application extends Controller {
     	renderJSON(cpu);
     }
     
-    public static void testAction() {
-    	System.out.println("test");
-    	GPU gpu = GPU.findById((long)2);
-    	renderJSON(gpu);
-    }
-    
     public static void infoPanel(String name, long id) {
-    	System.out.println("infoPanel");
+    	//System.out.println("infoPanel");
     	String json = "";
     	JSONSerializer serializer = new JSONSerializer();
-    	serializer.exclude("*.class", "id", "build", "entityId", "persistent", "requires");
+    	serializer.exclude("*.class", "id", "build", "entityId", "persistent");
     	Panel panelId = Panel.valueOf(name);
     	
     	switch (panelId) {
@@ -57,7 +54,6 @@ public class Application extends Controller {
     		break;
     	case GPU:
     		json = serializer.serialize(GPU.findById(id));
-    		System.out.println("GPU details requested.");
     		break;
     	case RAM:
     		json = serializer.serialize(RAM.findById(id));
@@ -74,46 +70,132 @@ public class Application extends Controller {
     	}
     	renderJSON(json);
     }
-    
-    public static void infoForCPU(long id) {
-    	System.out.println("infoForCPU: "+id);
-    	CPU cpu = CPU.findById(id);
-    	
-    	render(cpu);
+
+    public static void currentBuild(long id) {
+    	String json = "";
+    	JSONSerializer serializer = new JSONSerializer();
+    	serializer.exclude("*.class", "id", "entityId", "persistent");
+    	Build build = Build.findById(id);
+    	json = serializer.serialize(build);
+    	renderJSON(json);
     }
     
-    public static void infoForRAM(long id) {
-    	System.out.println("infoForRAM: "+id);
-    	RAM ram = RAM.findById(id);
-    	
-    	render(ram);
+    public static void delete(String part, long id) {
+    	Panel panelId = Panel.valueOf(part);
+    	System.out.println("Deleting item "+id+" from "+part);
+    	switch (panelId) {
+    	case CPU:
+    		CPU cpu = CPU.findById(id);
+    		cpu.delete();
+    		renderJSON(cpu);
+    		break;
+    	case GPU:
+    		GPU gpu = GPU.findById(id);
+    		gpu.delete();
+    		renderJSON(gpu);
+    		break;
+    	case RAM:
+    		RAM ram = RAM.findById(id);
+    		ram.delete();
+    		renderJSON(ram);
+    		break;
+    	case HD:
+    		HDD hd = HDD.findById(id);
+    		hd.delete();
+    		renderJSON(hd);
+    		break;
+    	case MB:
+    		Motherboard mb = Motherboard.findById(id);
+    		mb.delete();
+    		renderJSON(mb);
+    		break;
+    	case PSU:
+    		PSU psu = CPU.findById(id);
+    		psu.delete();
+    		renderJSON(psu);
+    		break;
+    	case BUILD:
+    		Build build = Build.findById(id);
+    		System.out.println(build.name+": "+build.id);
+    		build.delete();
+    		renderJSON(build);
+    		break;
+    	}
     }
     
-    public static void infoForGPU(long id) {
-    	System.out.println("infoForGPU: "+id);
-    	GPU gpu = GPU.findById(id);
-    	
-    	render(gpu);
+    public static void create(String part, String name) {
+    	System.out.println("Creating item '"+name+"' in "+part);
+    	Panel panelId = Panel.valueOf(part);
+    	switch (panelId) {
+    	case CPU:
+    		CPU cpu = new CPU(name, "foo", 1, 1);
+    		cpu.save();
+    		renderJSON(cpu);
+    		break;
+    	case GPU:
+    		GPU gpu = new GPU(name);
+    		gpu.save();
+    		renderJSON(gpu);
+    		break;
+    	case RAM:
+    		RAM ram = new RAM(name);
+    		ram.save();
+    		renderJSON(ram);
+    		break;
+    	case HD:
+    		HDD hd = new HDD(name);
+    		hd.save();
+    		renderJSON(hd);
+    		break;
+    	case MB:
+    		Motherboard mobo = new Motherboard(name);
+    		mobo.save();
+    		renderJSON(mobo);
+    		break;
+    	case PSU:
+    		PSU psu = new PSU(name);
+    		psu.save();
+    		renderJSON(psu);
+    		break;
+    	case BUILD:
+    		Build build = new Build(name);
+    		build.save();
+    		renderJSON(build);
+    		break;
+    	}
     }
     
-    public static void deletegpu(long id) {
-    	System.out.println("Deleting "+id);
-    	GPU gpu = GPU.findById(id);
-    	gpu.delete();
-    	/*for (long i =0; i<6;i++) {
-    		GPU g = GPU.findById(i);
-    		if (g == null) {
-    			System.out.println("Missing: "+i);
-    		} else {
-    			System.out.println("GPU id: "+g.id + "; name: "+g.name);
-    		}
-    	}*/
-    }
-    
-    public static void createGPU(String name) {
-    	System.out.println("foobar");
-    	GPU gpu = new GPU(name);
-    	gpu.save();
-    	renderJSON(gpu);
+    public static void changeBuild(String partName, long buildId, long partId) {
+    	Build build = Build.findById(buildId);
+    	System.out.println("Updating build '"+build.name+"' with "+partName+":"+partId);
+    	Panel partKind = Panel.valueOf(partName);
+    	switch (partKind) {
+    	case CPU:
+    		CPU cpu = CPU.findById(partId);
+    		build.cpu = cpu;
+    		break;
+    	case GPU:
+    		GPU gpu = GPU.findById(partId);
+    		build.gpu = gpu;
+    		break;
+    	case RAM:
+    		RAM ram = RAM.findById(partId);
+    		build.ram = ram;
+    		break;
+    	case MB:
+    		Motherboard mb = Motherboard.findById(partId);
+    		build.mb = mb;
+    		break;
+    	case HD:
+    		HDD hd = HDD.findById(partId);
+    		build.hd = hd;
+    		break;
+    	case PSU:
+    		PSU psu = PSU.findById(partId);
+    		build.psu = psu;
+    		break;
+    	}
+    	build.save();
+    	renderJSON(build);
     }
 }
