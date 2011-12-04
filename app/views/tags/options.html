@@ -72,18 +72,8 @@
 #{/elseif}
 
 #{elseif _part == "HD"}
-<script>
-  function hdOptions(arg)
-  {
-    if (arg == 1) {
-        document.getElementById("hdd").style.display = '';
-        document.getElementById("ssd").style.display = 'none';
-    } else if (arg == 2) {
-        document.getElementById("hdd").style.display = 'none';
-        document.getElementById("ssd").style.display = '';
-    }
-  }
-</script>
+
+<form name="hd" id="hd_form">
 <input type="radio" name="hd_ssd" onchange="hdOptions(1);" />HDD &nbsp;
 <input type="radio" name="hd_ssd" onchange="hdOptions(2);" />SSD
 <div id="hdd" style="display:none">
@@ -115,14 +105,14 @@
     <tr valign="top">
       <td>
         Manufacturer <br />
-        <input type="checkbox" name="hd_manufacturer" />OCZ <br />
-        <input type="checkbox" name="hd_manufacturer" />Crucial <br />
+        <input type="checkbox" name="manufacturer" />OCZ <br />
+        <input type="checkbox" name="manufacturer" />Crucial <br />
       </td>
       <td>
         Capacity <br />
-        <input type="radio" name="hd_capacity" />&lt;64GB <br />
-        <input type="radio" name="hd_capacity" />&gt;=64GB <br />
-        <input type="radio" name="hd_capacity" />&gt;=120GB <br />
+        <input type="radio" name="capacity" value="< 64" />&lt;64GB <br />
+        <input type="radio" name="capacity" value=">= 64"/>&gt;=64GB <br />
+        <input type="radio" name="capacity" value=">= 120"/>&gt;=120GB <br />
       </td>
       <td>
         Interface <br />
@@ -131,6 +121,44 @@
     </tr>
   </table>
 </div>
+<div id="results" style="border: 1px solid red; width: 10em;">
+    
+</div>
+<script>
+  function hdOptions(arg)
+  {
+    if (arg == 1) {
+        document.getElementById("hdd").style.display = '';
+        document.getElementById("ssd").style.display = 'none';
+    } else if (arg == 2) {
+        document.getElementById("hdd").style.display = 'none';
+        document.getElementById("ssd").style.display = '';
+    }
+  }
+  
+  function showValues() {
+    var fields = $(":input").serializeArray();
+    var checkboxes = $("#hd_form").find("input:checkbox");
+    console.log(checkboxes);
+    $("#results").empty();
+    submitFields=[];
+    
+    jQuery.each(checkboxes, function(i, checkbox){
+        if (checkbox.checked) {
+     // $("#results").append(checkbox.name + " ");
+      submitFields.push("equal:"+checkbox.name+":"+checkbox.value);
+        }
+    });
+    var listAction = #{jsAction @changeFilter(':something') /};
+    $.post(listAction( {something: submitFields.join(",")}));
+  }
+
+  $(":checkbox, :radio").click(showValues);
+  //$("select").change(showValues);
+  showValues();
+</script>
+</form>
+
 #{/elseif}
 
 #{elseif _part == "MB"}

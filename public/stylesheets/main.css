@@ -11,3 +11,14 @@
 {
     width: 20em;
 }
+
+.mediumTable tr
+{
+    padding-bottom: 3em;
+}
+
+.mediumTable th
+{
+    text-align: top;
+    border-right: 1px solid black;
+}

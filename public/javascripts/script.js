@@ -1,5 +1,7 @@
 var sections, current, lists, parts, selected;
 
+
+
 function removeFromOptionList(list, id) {
 	var optionlist = document.getElementById(list).options;
 	for (var i = 0; i<list.length; i++) {

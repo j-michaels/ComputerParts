@@ -1,10 +1,23 @@
-CPU(INTEL1):
-    numCores: 2
-    name: Intel i7
-    speed: 2.5
-    brand: Intel
-CPU(LOL1):
-    numCores: 42
-    name: LOL i9000
-    speed: 1.0
-    brand: LOL Inc
+CPU(0):
+    name: Intel Core i5-2500K Sandy Bridge 3.3GHz
+    model: BX80623I52500K
+    maker: Intel
+    numCores: 4
+    speed: 3.3
+    socket: LGA
+    cacheType: L3
+    cacheMemory: 6144
+    wattage: 95
+    price: 219.99
+
+CPU(1):
+    name: Intel Core i7-2600K Sandy Bridge 3.4GHz
+    model: BX80623I72600K
+    maker: Intel
+    numCores: 4
+    speed: 3.4
+    Socket: LGA
+    CacheType: L2
+    CacheMemory: 8192
+    Wattage: 95
+    price: 319.99

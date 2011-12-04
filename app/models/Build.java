@@ -25,7 +25,7 @@ public class Build extends Model {
 	public PSU psu;
 	
 	@OneToOne
-	public HDD hd;
+	public HD hd;
 	
 	@Required
 	public String name;

@@ -13,9 +13,14 @@ public class GPU extends Model {
 	public Build build;
 	
 	public String name;
-	public String brand;
+	public String maker;
     public String requires;
     public int vram;
+    public String model;
+    public int wattage;
+    public double price;
+    public String intrface;
+    
     
     public GPU(String name) {
     	this.name = name;

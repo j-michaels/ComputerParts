@@ -15,17 +15,20 @@ public class CPU extends Model {
 	@Required
 	public String name;
 	@Required
-	public String brand;
+	public String maker;
 	@Required
 	public int numCores;
 	public double speed;
+	public String socket;
+	public int cacheMemory;
+	public int wattage;
+	public double price;
+	public String model;
 	
 	public CPU(String name, String brand, int cores, double speed) {
 		this.name = name;
-		this.brand = brand;
+		this.maker = brand;
 		this.numCores = cores;
 		this.speed = speed;
 	}
-	
-	
 }

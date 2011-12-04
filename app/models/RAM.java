@@ -12,8 +12,12 @@ public class RAM extends Model {
 	public int amount;
 	public String requires;
 	public String model;
-	public String brand;
+	public String maker;
 	public String name;
+	public double power;
+	public int capacity;
+	public double price;
+	public String type;
 	
 	public RAM(String name) {
     	this.name = name;

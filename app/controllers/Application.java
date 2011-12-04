@@ -20,7 +20,7 @@ public class Application extends Controller {
         List mbs = Motherboard.find("order by name desc").fetch();
         List rams = RAM.find("order by name desc").fetch();
         List psus = PSU.find("order by name desc").fetch();
-        List hds = HDD.find("order by name desc").fetch();
+        List hds = HD.find("order by name desc").fetch();
         render(gpus, cpus, rams, psus, mbs, hds, builds);
     }
     
@@ -31,7 +31,7 @@ public class Application extends Controller {
         List mbs = Motherboard.find("order by name desc").fetch();
         List rams = RAM.find("order by name desc").fetch();
         List psus = PSU.find("order by name desc").fetch();
-        List hds = HDD.find("order by name desc").fetch();
+        List hds = HD.find("order by name desc").fetch();
         boolean admin = true;
         renderTemplate("Application/index.html", gpus, cpus, rams, mbs, psus, hds, builds, admin);
     }
@@ -59,7 +59,7 @@ public class Application extends Controller {
     		json = serializer.serialize(RAM.findById(id));
     		break;
     	case HD:
-    		json = serializer.serialize(HDD.findById(id));
+    		json = serializer.serialize(HD.findById(id));
     		break;
     	case MB:
     		json = serializer.serialize(Motherboard.findById(id));
@@ -101,7 +101,7 @@ public class Application extends Controller {
     		renderJSON(ram);
     		break;
     	case HD:
-    		HDD hd = HDD.findById(id);
+    		HD hd = HD.findById(id);
     		hd.delete();
     		renderJSON(hd);
     		break;
@@ -144,7 +144,7 @@ public class Application extends Controller {
     		renderJSON(ram);
     		break;
     	case HD:
-    		HDD hd = new HDD(name);
+    		HD hd = new HD(name);
     		hd.save();
     		renderJSON(hd);
     		break;
@@ -188,7 +188,7 @@ public class Application extends Controller {
     		build.mb = mb;
     		break;
     	case HD:
-    		HDD hd = HDD.findById(partId);
+    		HD hd = HD.findById(partId);
     		build.hd = hd;
     		break;
     	case PSU:
@@ -198,5 +198,10 @@ public class Application extends Controller {
     	}
     	build.save();
     	renderJSON(build);
+    }
+    
+    public static void changeFilter(String something) {
+    	System.out.println(something);
+    	
     }
 }
