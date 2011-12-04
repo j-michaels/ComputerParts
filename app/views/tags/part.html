@@ -60,9 +60,9 @@
   </table>
 </div>
 
-#{if _admin}
-<script type="text/javascript" charset="utf=8">
 
+<script type="text/javascript" charset="utf=8">
+#{if _admin}
     $('#${_part}_delete').click(
     	function() {
     		var gl = document.getElementById("${_part}list");
@@ -79,6 +79,7 @@
     			$('#${_part}list').prepend('<option value="' +data.id + '">'+data.name+'</option>')
     		}, 'json')
     	});
+#{/if}
     $('#${_part}_addtobuild').click(function() {
             var build_id = getCurrentBuildId();
             var part_id = getCurrentPartId("${_part}");
@@ -89,4 +90,3 @@
        });
 
 </script>
-#{/if}
