@@ -3,23 +3,23 @@
   <tr valign="top">
     <td>
       Manufacturer <br />
-      <input type="checkbox" name="cpu_manufacturer" />Intel <br />
-      <input type="checkbox" name="cpu_manufacturer" />AMD <br />
+      <input type="checkbox" name="maker" class="sequals" value="Intel" />Intel <br />
+      <input type="checkbox" name="maker" class="sequals" value="AMD" />AMD <br />
     </td>
     <td>
       Cores <br />
-      <input type="radio" name="cpu_cores" />&gt;=1 <br />
-      <input type="radio" name="cpu_cores" />&gt;=2 <br />
-
-      <input type="radio" name="cpu_cores" />&gt;=4 <br />
+      <input type="radio" name="numCores" class="gtre" value=1 />&gt;=1 <br />
+      <input type="radio" name="numCores" class="gtre" value=2 />&gt;=2 <br />
+      <input type="radio" name="numCores" class="gtre" value=4 />&gt;=4 <br />
+      <input type="radio" name="numCores" class="gtre" value=8 />&gt;=8 <br />
+      <input type="radio" name="numCores" class="gtre" value=16 />&gt;=16 <br />
     </td>
     <td>
       Speed <br />
-      <input type="radio" name="cpu_speed" />&gt;=2.0GHz <br />
-      <input type="radio" name="cpu_speed" />&gt;=2.4GHz <br />
-      <input type="radio" name="cpu_speed" />&gt;=2.8GHz <br />
-
-      <input type="radio" name="cpu_speed" />&gt;=3.2GHz <br />
+      <input type="radio" name="speed" class="gtre" value=2.0 />&gt;=2.0GHz <br />
+      <input type="radio" name="speed" class="gtre" value=2.4 />&gt;=2.4GHz <br />
+      <input type="radio" name="speed" class="gtre" value=2.8 />&gt;=2.8GHz <br />
+      <input type="radio" name="speed" class="gtre" value=3.2 />&gt;=3.2GHz <br />
     </td>
   </tr>
 
@@ -31,22 +31,22 @@
   <tr valign="top">
     <td> 
       Manufacturer <br />
-      <input type="checkbox" name="ram_manufacturer" />Corsair <br />
-      <input type="checkbox" name="ram_manufacturer" />Crucial <br />
-      <input type="checkbox" name="ram_manufacturer" />Kingston <br />
+      <input type="checkbox" name="maker" class="sequals" value="" />Corsair <br />
+      <input type="checkbox" name="maker" class="sequals" value="" />Crucial <br />
+      <input type="checkbox" name="maker" class="sequals" value="" />Kingston <br />
     </td>
     <td>
       Capacity <br />
-      <input type="radio" name="ram_capacity" />1GB <br />
-      <input type="radio" name="ram_capacity" />2GB <br />
-      <input type="radio" name="ram_capacity" />4GB <br />
-      <input type="radio" name="ram_capacity" />8GB <br />
+      <input type="radio" name="capacity" class="gtre" value=1 />&gt;=1GB <br />
+      <input type="radio" name="capacity" class="gtre" value=2 />&gt;=2GB <br />
+      <input type="radio" name="capacity" class="gtre" value=4 />&gt;=4GB <br />
+      <input type="radio" name="capacity" class="gtre" value=8 />&gt;=8GB <br />
     </td>
     <td>
       Speed <br />
-      <input type="radio" name="ram_speed" />DDR3 1066 <br />
-      <input type="radio" name="ram_speed" />DDR3 1333 <br />
-      <input type="radio" name="ram_speed" />DDR3 1600 <br />
+      <input type="radio" name="speed" class="sequals" value="DDR3 1066" />DDR3 1066 <br />
+      <input type="radio" name="speed" class="sequals" value="DDR3 1333" />DDR3 1333 <br />
+      <input type="radio" name="speed" class="sequals" value="DDR3 1600" />DDR3 1600 <br />
     </td>
   </tr>
 </table>
@@ -57,15 +57,15 @@
     <tr valign="top">
       <td>
         Manufacturer <br />
-        <input type="checkbox" name="gpu_manufacturer" />ASUS <br />
-        <input type="checkbox" name="gpu_manufacturer" />GIGABYTE <br />
-        <input type="checkbox" name="gpu_manufacturer" />EVGA <br />
+        <input type="checkbox" name="maker" class="sequals" value="AMD" />AMD <br />
+        <input type="checkbox" name="maker" class="sequals" value="NVIDIA" />NVIDIA <br />
+        <input type="checkbox" name="maker" class="sequals" value="EVGA" />EVGA <br />
       </td>
       <td>
         Video RAM <br />
-        <input type="checkbox" name="gpu_ram" />512MB <br />
-        <input type="checkbox" name="gpu_ram" />1GB <br />
-        <input type="checkbox" name="gpu_ram" />2GB <br />
+        <input type="checkbox" name="vram" class="gtre" value=512 />512MB <br />
+        <input type="checkbox" name="vram" class="gtre" value=1000 />1GB <br />
+        <input type="checkbox" name="vram" class="gtre" value=2000 />2GB <br />
       </td>
     </tr>
   </table>
@@ -73,7 +73,6 @@
 
 #{elseif _part == "HD"}
 
-<form name="hd" id="hd_form">
 <input type="radio" name="ssd" onchange="hdOptions(1);" class="equals" value="false" />HDD &nbsp;
 <input type="radio" name="ssd" onchange="hdOptions(2);" class="equals" value="true" />SSD
 <div id="hdd" style="display:none">
@@ -86,10 +85,10 @@
       </td>
       <td>
         Capacity <br />
-        <input type="radio" name="capacity" value="50000" class="ltn" />&lt;500GB <br />
-        <input type="radio" name="capacity" value="50000" class="gtre" />&gt;=500GB <br />
-        <input type="radio" name="capacity" value="75000" class="gtre" />&gt;=750GB <br />
-        <input type="radio" name="capacity" value="100000" class="gtre" />&gt;=1TB <br />
+        <input type="radio" name="capacity" value="500" class="ltn" />&lt;500GB <br />
+        <input type="radio" name="capacity" value="500" class="gtre" />&gt;=500GB <br />
+        <input type="radio" name="capacity" value="750" class="gtre" />&gt;=750GB <br />
+        <input type="radio" name="capacity" value="1000" class="gtre" />&gt;=1TB <br />
       </td>
       <td>
         Interface <br />
@@ -105,18 +104,18 @@
     <tr valign="top">
       <td>
         Manufacturer <br />
-        <input type="checkbox" name="maker" class="sequals" />OCZ <br />
-        <input type="checkbox" name="maker" class="sequals" />Crucial <br />
+        <input type="checkbox" name="maker" value="OCZ" class="sequals" />OCZ <br />
+        <input type="checkbox" name="maker" value="Crucial" class="sequals" />Crucial <br />
       </td>
       <td>
         Capacity <br />
-        <input type="radio" name="capacity" value="64" />&lt;64GB <br />
-        <input type="radio" name="capacity" value="64"/>&gt;=64GB <br />
-        <input type="radio" name="capacity" value="120"/>&gt;=120GB <br />
+        <input type="radio" name="capacity" value="64" class="ltn" />&lt;64GB <br />
+        <input type="radio" name="capacity" value="64" class="gtre" />&gt;=64GB <br />
+        <input type="radio" name="capacity" value="120" class="gtre"/>&gt;=120GB <br />
       </td>
       <td>
         Interface <br />
-        <input type="checkbox" name="intrface" class="sequals" />SATA III <br />
+        <input type="checkbox" name="intrface" class="sequals" value="SATA III" />SATA III <br />
       </td>
     </tr>
   </table>
@@ -131,38 +130,13 @@
         document.getElementById("hdd").style.display = 'none';
         document.getElementById("ssd").style.display = '';
     }
-  }
-  
-  function showValues() {
-    var fields = $(":input").serializeArray();
-    var checkboxes = $("#hd_form").find("input:checkbox");
-    var radioboxes = $("#hd_form").find("input:radio");
-    console.log(checkboxes);
-    submitFields=[];
-    
-    jQuery.each(checkboxes, function(i, checkbox){
-        if (checkbox.checked) {
-            submitFields.push(checkbox.className+":"+checkbox.name+":"+checkbox.value);
-        }
-    });
-    jQuery.each(radioboxes, function(i, radiobox) {
-        if (radiobox.checked) {
-            submitFields.push(radiobox.className+":"+radiobox.name+":"+radiobox.value);
-        }
-    });
-    var listAction = #{jsAction @changeFilter(':part',':something') /};
-    //$.get(listAction( {part:"${_part}", something: submitFields.join(",")}), function(data) {    });
-    $.get(listAction( {part:"${_part}", something: submitFields.join(",")}), function(data) {
-        $('#HDlist').html(data);
+    var inputs = $("#ssd, #hdd").find("input:checkbox, input:radio");
+    jQuery.each(inputs, function(i, input) {
+        
+        input.checked = false;
     });
   }
-
-  $(":checkbox, :radio").click(showValues);
-  //$("select").change(showValues);
-  showValues();
 </script>
-</form>
-
 #{/elseif}
 
 #{elseif _part == "MB"}
@@ -170,10 +144,16 @@
     <tr valign="top">
       <td>
         Manufacturer <br />
-        <input type="checkbox" name="mb_manufacturer" />ASUS <br />
-        <input type="checkbox" name="mb_manufacturer" />GIGABYTE <br />
-        <input type="checkbox" name="mb_manufacturer" />MSI <br />
+        <input type="checkbox" name="maker" class="sequals" value="ASUS" />ASUS <br />
+        <input type="checkbox" name="maker" class="sequals" value="GIGABYTE" />GIGABYTE <br />
+        <input type="checkbox" name="maker" class="sequals" value="MSI" />MSI <br />
       </td>
     </tr>
   </table>
 #{/elseif}
+<script>
+
+$("#${_part}filter").find("input:checkbox, input:radio").click(function() {showValues("${_part}")});
+//$("select").change(showValues);
+showValues("${_part}");
+</script>

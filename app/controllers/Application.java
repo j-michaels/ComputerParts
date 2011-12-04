@@ -256,14 +256,36 @@ public class Application extends Controller {
     		sqlStatement = "";
     	}
     	System.out.println(sqlStatement);
+    	Panel p = Panel.valueOf(part);
+    	List parts = null;
+    	switch (p) {
+    	case CPU:
+    		parts = CPU.find(sqlStatement +" order by name desc").fetch();
+    		break;
+    	case GPU:
+    		parts = GPU.find(sqlStatement +" order by name desc").fetch();
+    		break;
+    	case RAM:
+    		parts = RAM.find(sqlStatement +" order by name desc").fetch();
+    		break;
+    	case HD:
+    		parts = HD.find(sqlStatement +" order by name desc").fetch();
+    		break;
+    	case MB:
+    		parts = Motherboard.find(sqlStatement +" order by name desc").fetch();
+    		break;
+    	case PSU:
+    		parts = PSU.find(sqlStatement +" order by name desc").fetch();
+    		break;
+    	}
     	
-    	List parts = HD.find(sqlStatement +" order by name desc").fetch();
+    	
     	/*Iterator<HD> it = hds.iterator();
     	while (it.hasNext()) {
     		HD hd = it.next();
     		System.out.println(hd.name);
     	}*/
-    	
+    	System.out.println("Parts: "+parts.size());
     	renderTemplate("Application/list.html", part, parts);
     }
 }

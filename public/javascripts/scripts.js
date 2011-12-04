@@ -82,6 +82,8 @@ function CreateDetailView(objArray, theme, enableHeader) {
     return str;
 }
 
+
+
 function getCurrentPartId(part) {
     var listElement = document.getElementById(part+"list");
     return listElement.options[listElement.selectedIndex].value;

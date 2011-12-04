@@ -13,6 +13,30 @@
             $("#"+part_id+"_info").html(CreateDetailView([data]));
         });
     }
+    
+    function showValues(partName) {
+      var checkboxes = $("#"+partName+"filter").find("input:checkbox");
+      var radioboxes = $("#"+partName+"filter").find("input:radio");
+      //console.log(checkboxes);
+      submitFields=[];
+
+      jQuery.each(checkboxes, function(i, checkbox){
+          if (checkbox.checked) {
+              submitFields.push(checkbox.className+":"+checkbox.name+":"+checkbox.value);
+          }
+      });
+      jQuery.each(radioboxes, function(i, radiobox) {
+          if (radiobox.checked) {
+              submitFields.push(radiobox.className+":"+radiobox.name+":"+radiobox.value);
+          }
+      });
+      var listAction = #{jsAction @changeFilter(':part',':something') /};
+      //$.get(listAction( {part:"${_part}", something: submitFields.join(",")}), function(data) {    });
+      $.get(listAction( {part:partName, something: submitFields.join(",")}), function(data) {
+          //console.log(data);
+          $("#"+partName+"list").html(data);
+      });
+    }
 </script>
 
 #{current /}
