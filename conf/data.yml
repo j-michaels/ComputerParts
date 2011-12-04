@@ -1,0 +1,1180 @@
+CPU(BX80623I52500K):
+    name: Intel Core i5-2500K Sandy Bridge 3.3GHz
+    model: BX80623I52500K
+    maker: Intel
+    numCores: 4
+    speed: 3.3
+    socket: LGA
+    cacheType: L3
+    cacheMemory: 6144
+    wattage: 95
+    price: 219.99
+
+CPU(BX80623I72600K):
+    name: Intel Core i7-2600K Sandy Bridge 3.4GHz
+    model: BX80623I72600K
+    maker: Intel
+    numCores: 4
+    speed: 3.4
+    Socket: LGA
+    CacheType: L2
+    CacheMemory: 8192
+    Wattage: 95
+    price: 319.99
+
+CPU(BX80601950):
+    name: Intel Core i7-950 Bloomfield 3.06GHz
+    model: BX80601950
+    maker: Intel
+    numCores: 4
+    speed: 3.06
+    Socket: LGA
+    CacheType: L2
+    CacheMemory: 8192
+    Wattage: 130
+    price: 259.99
+
+CPU(BX80605I5760):
+    name: Intel Core i5-760 Lynnfield 2.8GHz
+    model: BX80605I5760
+    maker: Intel
+    numCores: 4
+    speed: 2.8
+    Socket: LGA
+    CacheType: L3
+    CacheMemory: 8192
+    Wattage: 95
+    price: 199.99
+
+CPU(BX80601960):
+    name: Intel Core i7-960 Bloomfield 3.2GHz
+    model: BX80601960
+    maker: Intel
+    numCores: 4
+    speed: 3.2
+    Socket: LGA
+    CacheType: L3
+    CacheMemory: 8192
+    Wattage: 130
+    price: 289.99
+
+CPU(BX80623I32100):
+    name: Intel Core i3-2100 Sandy Bridge 3.1GHz
+    model: BX80623I32100
+    maker: Intel
+    numCores: 2
+    speed: 3.1
+    Socket: LGA
+    CacheType: L3
+    CacheMemory: 8192
+    Wattage: 65
+    price: 124.99
+
+CPU(BX80571E5300):
+    name: Intel Pentium E5300 Wolfdale 2.6GHz
+    model: BX80571E5300
+    maker: Intel
+    numCores: 2
+    speed: 2.6
+    Socket: LGA
+    CacheType: L2
+    CacheMemory: 2048
+    Wattage: 65
+    price: 75.99
+
+CPU(BX80571E3300):
+    name: Intel Celeron E3300 Wolfdale 2.5GHz
+    model: BX80571E3300
+    maker: Intel
+    numCores: 2
+    speed: 2.5
+    Socket: LGA
+    CacheType: L2
+    CacheMemory: 1024
+    Wattage: 65
+    price: 53.99
+
+CPU(BX80557430):
+    name: Intel Celeron 430 Conroe-L 1.8GHz
+    model: BX80557430
+    maker: Intel
+    numCores: 1
+    speed: 1.8
+    Socket: LGA
+    CacheType: L2
+    CacheMemory: 512
+    Wattage: 35
+    price: 43.99
+
+CPU(BX80616I3540):
+    name: Intel Core i3-540 Clarkdale 3.06GHz
+    model: BX80616I3540
+    maker: Intel
+    numCores: 2
+    speed: 3.06
+    Socket: LGA
+    CacheType: L2
+    CacheMemory: 4096
+    Wattage: 75
+    price: 99.99
+
+CPU(HDT90ZFBGRBOX):
+    name: AMD Phenom II X6 1090T Black Edition Thuban 3.2GHz
+    model: HDT90ZFBGRBOX
+    maker: AMD
+    numCores: 6
+    speed: 3.2
+    Socket: AM3
+    CacheType: L3
+    CacheMemory: 6144
+    Wattage: 125
+    price: 169.99
+
+CPU(ADX250OCGMBOX):
+    name: AMD Athlon II X2 250 Regor 3.0GHz
+    model: ADX250OCGMBOX
+    maker: AMD
+    numCores: 2
+    speed: 3
+    Socket: AM3
+    CacheType: L2
+    CacheMemory: 2048
+    Wattage: 65
+    price: 61.99
+
+CPU(HDZ955FBGMBOX):
+    name: AMD Phenom II X4 955 Black Edition Deneb 3.2GHz
+    model: HDZ955FBGMBOX
+    maker: AMD
+    numCores: 4
+    speed: 3.2
+    Socket: AM3
+    CacheType: L3
+    CacheMemory: 6144
+    Wattage: 125
+    price: 124.99
+
+CPU(HDZ965FBGMBOX):
+    name: AMD Phenom II X4 965 Black Edition Deneb 3.4GHz
+    model: HDZ965FBGMBOX
+    maker: AMD
+    numCores: 4
+    speed: 3.4
+    Socket: AM3
+    CacheType: L3
+    CacheMemory: 6144
+    Wattage: 125
+    price: 129.99
+
+CPU(HDZ555WFGMBOX):
+    name: AMD Phenom II X2 555 Black Edition Callisto 3.2GHz
+    model: HDZ555WFGMBOX
+    maker: AMD
+    numCores: 2
+    speed: 3.2
+    Socket: AM3
+    CacheType: L3
+    CacheMemory: 6144
+    Wattage: 80
+    price: 87.99
+
+CPU(ADX450WFGMBOX):
+    name: AMD Athlon II X3 450 Rana 3.2GHz
+    model: ADX450WFGMBOX
+    maker: AMD
+    numCores: 3
+    speed: 3.2
+    Socket: AM3
+    CacheType: L2
+    CacheMemory: 1536
+    Wattage: 95
+    price: 77.99
+
+CPU(ADX260OCGMBOX):
+    name: AMD Athlon II X2 260 Regor 3.2GHz
+    model: ADX260OCGMBOX
+    maker: AMD
+    numCores: 2
+    speed: 3.2
+    Socket: AM3
+    CacheType: L2
+    CacheMemory: 2048
+    Wattage: 65
+    price: 64.99
+
+CPU(HDE00ZFBGRBOX):
+    name: AMD Phenom II X6 1100T Black Edition Thuban 3.3GHz
+    model: HDE00ZFBGRBOX
+    maker: AMD
+    numCores: 6
+    speed: 3.3
+    Socket: AM3
+    CacheType: L3
+    CacheMemory: 6144
+    Wattage: 125
+    price: 189.99
+
+CPU(ADX455WFGMBOX):
+    name: AMD Athlon II X3 455 Rana 3.3GHz
+    model: ADX455WFGMBOX
+    maker: AMD
+    numCores: 3
+    speed: 3.3
+    Socket: AM3
+    CacheType: L2
+    CacheMemory: 1536
+    Wattage: 95
+    price: 79.99
+
+CPU(HDZ975FBGMBOX):
+    name: AMD Phenom II X4 975 Black Edition Deneb 3.6GHz
+    model: HDZ975FBGMBOX
+    maker: AMD
+    numCores: 4
+    speed: 3.6
+    Socket: AM3
+    CacheType: L3
+    CacheMemory: 6144
+    Wattage: 125
+    price: 159.99
+
+CPU(1234567890):
+    name: TGMtDSYCBaFC  Dodeca-Core Series 4.2GHz
+    model: 1234567890
+    maker: TGMtDSYCBaFC 
+    numCores: 12
+    speed: 4.2
+    Socket: SUPERsocket
+    CacheType: L3
+    CacheMemory: 24576
+    Wattage: 500
+    price: 2999.99
+
+CPU(9876543210):
+    name: TGMtDSYCBaFC  Dodeca-Core Series 4.8GHz
+    model: 9876543210
+    maker: TGMtDSYCBaFC 
+    numCores: 12
+    speed: 4.8
+    Socket: SUPERsocket
+    CacheType: L3
+    CacheMemory: 32768
+    Wattage: 755
+    price: 3499.99
+
+CPU(113581321):
+    name: TGMtDSYCBaFC  Octakaideca-Core Series 4.3GHz
+    model: 113581321
+    maker: TGMtDSYCBaFC 
+    numCores: 18
+    speed: 4.3
+    Socket: SUPERsocket
+    CacheType: L3
+    CacheMemory: 32768
+    Wattage: 1055
+    price: 4999.99
+
+CPU(giveusanAplease):
+    name: TGMtDSYCBaFC  Octakaideca-Core Series 4.7GHz
+    model: giveusanAplease
+    maker: TGMtDSYCBaFC 
+    numCores: 18
+    speed: 4.7
+    Socket: SUPERsocket
+    CacheType: L3
+    CacheMemory: 65536
+    Wattage: 1815
+    price: 5499.99
+
+CPU(PRIMENUMBERS):
+    name: TGMtDSYCBaFC Icosotetra-Core Series 5.8GHz
+    model: PRIMENUMBERS
+    maker: TGMtDSYCBaFC 
+    numCores: 24
+    speed: 5.8
+    Socket: SUPERDUPERsocket
+    CacheType: L4
+    CacheMemory: 409600
+    Wattage: 7777
+    price: 7777.77
+
+GPU(R6450-MD1GD3/LP):
+    model: R6450-MD1GD3/LP
+    maker: AMD
+    Interface: PCIe
+    vRAM: 256
+    Wattage: 200
+    price: 49.99
+
+GPU(03G-P3-1596-AR):
+    model: 03G-P3-1596-AR
+    maker: NVIDIA
+    Interface: PCIe
+    vRAM: 1024
+    Wattage: 400
+    price: 749.99
+
+GPU(015-P3-1580-AR):
+    model: 015-P3-1580-AR
+    maker: NVIDIA
+    Interface: PCIe
+    vRAM: 512
+    Wattage: 300
+    price: 499.99
+
+GPU(ZT-50101-10P):
+    model: ZT-50101-10P
+    maker: NVIDIA
+    Interface: PCIe
+    vRAM: 512
+    Wattage: 300
+    price: 479.99
+
+GPU(GV-N580UD-15I):
+    model: GV-N580UD-15I
+    maker: NVIDIA
+    Interface: PCIe
+    vRAM: 512
+    Wattage: 300
+    price: 509.99
+
+GPU(ENGTX580):
+    model: ENGTX580
+    maker: NVIDIA
+    Interface: PCIe
+    vRAM: 512
+    Wattage: 300
+    price: 499.99
+
+GPU(100311-2SR):
+    model: 100311-2SR
+    maker: AMD
+    Interface: PCIe
+    vRAM: 256
+    Wattage: 200
+    price: 499.99
+
+GPU(HD-697A-CNFC):
+    model: HD-697A-CNFC
+    maker: AMD
+    Interface: PCIe
+    vRAM: 256
+    Wattage: 200
+    price: 349.99
+
+GPU(H697F2G2M):
+    model: H697F2G2M
+    maker: AMD
+    Interface: PCIe
+    vRAM: 256
+    Wattage: 200
+    price: 349.99
+
+GPU(012-P3-1573-KR):
+    model: 012-P3-1573-KR
+    maker: NVIDIA
+    Interface: PCIe
+    vRAM: 256
+    Wattage: 200
+    price: 349.99
+
+GPU(HD-695X-CNDC):
+    model: HD-695X-CNDC
+    maker: AMD
+    Interface: PCIe
+    vRAM: 256
+    Wattage: 200
+    price: 279.99
+
+GPU(100312FLEX):
+    model: 100312FLEX
+    maker: AMD
+    Interface: PCIe
+    vRAM: 256
+    Wattage: 200
+    price: 264.99
+
+GPU(EAH6950):
+    model: EAH6950
+    maker: AMD
+    Interface: PCIe
+    vRAM: 256
+    Wattage: 200
+    price: 289.99
+
+GPU(H695QNT2G2M):
+    model: H695QNT2G2M
+    maker: AMD
+    Interface: PCIe
+    vRAM: 256
+    Wattage: 200
+    price: 269.99
+
+GPU(R6950 TWIN FROZR III):
+    model: R6950 TWIN FROZR III
+    maker: AMD
+    Interface: PCIe
+    vRAM: 256
+    Wattage: 200
+    price: 299.99
+
+GPU(HD-695X-ZNFC):
+    model: HD-695X-ZNFC
+    maker: AMD
+    Interface: PCIe
+    vRAM: 256
+    Wattage: 200
+    price: 239.99
+
+GPU(01G-P3-1561-AR):
+    model: 01G-P3-1561-AR
+    maker: NVIDIA
+    Interface: PCIe
+    vRAM: 256
+    Wattage: 200
+    price: 249.99
+
+GPU(GV-N56GOC-1GI):
+    model: GV-N56GOC-1GI
+    maker: NVIDIA
+    Interface: PCIe
+    vRAM: 1024
+    Wattage: 400
+    price: 699.99
+
+GPU(N560GTX-TI TWIN FROZR):
+    model: N560GTX-TI TWIN FROZR
+    maker: NVIDIA
+    Interface: PCIe
+    vRAM: 1024
+    Wattage: 400
+    price: 739.99
+
+GPU(01G-P3-1563-AR):
+    model: 01G-P3-1563-AR
+    maker: NVIDIA
+    Interface: PCIe
+    vRAM: 512
+    Wattage: 300
+    price: 449.99
+
+GPU(100314-3L):
+    model: 100314-3L
+    maker: AMD
+    Interface: PCIe
+    vRAM: 256
+    Wattage: 200
+    price: 179.99
+
+GPU(03G-P3-9999-AR):
+    model: 03G-P3-9999-AR
+    maker: NVIDIA
+    Interface: PCIe
+    vRAM: 2048
+    Wattage: 500
+    price: 1499.99
+
+GPU(N9000GTX-TI TRIPLE FROZR):
+    model: N9000GTX-TI TRIPLE FROZR
+    maker: AMD
+    Interface: PCIe
+    vRAM: 1024
+    Wattage: 400
+    price: 999.99
+
+GPU(EAH777HEAVENLY):
+    model: EAH777HEAVENLY
+    maker: AMD
+    Interface: PCIe
+    vRAM: 2048
+    Wattage: 500
+    price: 1749.99
+
+GPU(N00001GTX-TXL FACEMELTER):
+    model: N00001GTX-TXL FACEMELTER
+    maker: AMD
+    Interface: PCIe
+    vRAM: 4096
+    Wattage: 1000
+    price: 1999.99
+
+HD(HD103SJ):
+    name: SAMSUNG Spinpoint F3  1TB 7200 RPM SATA 3.0Gb/s 3.5" Internal Hard Drive -Bare Drive
+    model: HD103SJ
+    maker: Samsung
+    Discspeed: 7200
+    Capacity: 1000
+    Interface: SATA
+    Interfacespeed: 3
+    SSD: FALSE
+    Wattage: 5
+    price: 159.99
+
+HD(WD15EARS):
+    name: Western Digital Caviar Green  1.5TB SATA 3.0Gb/s 3.5" Internal Hard Drive -Bare Drive
+    model: WD15EARS
+    maker: Western Digital
+    Discspeed: 5200
+    Capacity: 1500
+    Interface: SATA
+    Interfacespeed: 3
+    SSD: FALSE
+    Wattage: 5
+    price: 179.99
+
+HD(HD204UI):
+    name: SAMSUNG EcoGreen F4 HD204UI 2TB SATA 3.0Gb/s 3.5" Internal Hard Drive -Bare Drive
+    model: HD204UI
+    maker: Samsung
+    Discspeed: 5200
+    Capacity: 2000
+    Interface: SATA
+    Interfacespeed: 3
+    SSD: FALSE
+    Wattage: 5
+    price: 219.99
+
+HD(ST3500514NS):
+    name: Seagate Constellation ES ST3500514NS 500GB 7200 RPM SATA 3.0Gb/s 3.5" Enterprise Internal Hard Drive -Bare Drive
+    model: ST3500514NS
+    maker: Seagate
+    Discspeed: 7200
+    Capacity: 500
+    Interface: SATA
+    Interfacespeed: 3
+    SSD: FALSE
+    Wattage: 5
+    price: 149.99
+
+HD(WD2003FYYS):
+    name: Western Digital RE4  2TB 7200 RPM SATA 3.0Gb/s 3.5" Internal Hard Drive -Bare Drive
+    model: WD2003FYYS
+    maker: Western Digital
+    Discspeed: 7200
+    Capacity: 2000
+    Interface: SATA
+    Interfacespeed: 3
+    SSD: FALSE
+    Wattage: 5
+    price: 399.99
+
+HD(ST32000641AS):
+    name: Seagate Barracuda XT  2TB 7200 RPM SATA 6.0Gb/s 3.5" Internal Hard Drive -Bare Drive
+    model: ST32000641AS
+    maker: Seagate
+    Discspeed: 7200
+    Capacity: 2000
+    Interface: SATA
+    Interfacespeed: 6
+    SSD: FALSE
+    Wattage: 10
+    price: 329.99
+
+HD(ST33000651AS):
+    name: Seagate Barracuda XT  3TB 7200 RPM SATA 6.0Gb/s 3.5" Internal Hard Drive -Bare Drive
+    model: ST33000651AS
+    maker: Seagate
+    Discspeed: 7200
+    Capacity: 3000
+    Interface: SATA
+    Interfacespeed: 6
+    SSD: FALSE
+    Wattage: 10
+    price: 429.99
+
+HD(H3IK30003272SW):
+    name: HITACHI Deskstar  (0S03208) 3TB 7200 RPM SATA 6.0Gb/s 3.5" Internal Hard Drive -Bare Drive
+    model: H3IK30003272SW
+    maker: Samsung
+    Discspeed: 7200
+    Capacity: 3000
+    Interface: SATA
+    Interfacespeed: 6
+    SSD: FALSE
+    Wattage: 10
+    price: 399.99
+
+HD(ST3250312AS):
+    name: Seagate Barracuda  250GB 7200 RPM SATA 6.0Gb/s 3.5" Internal Hard Drive -Bare Drive
+    model: ST3250312AS
+    maker: Seagate
+    Discspeed: 7200
+    Capacity: 2500
+    Interface: SATA
+    Interfacespeed: 6
+    SSD: FALSE
+    Wattage: 10
+    price: 89.99
+
+HD(WD5000AAKX):
+    name: Western Digital Caviar Blue  500GB 7200 RPM SATA 6.0Gb/s 3.5" Internal Hard Drive -Bare Drive
+    model: WD5000AAKX
+    maker: Western Digital
+    Discspeed: 7200
+    Capacity: 500
+    Interface: SATA
+    Interfacespeed: 6
+    SSD: FALSE
+    Wattage: 10
+    price: 119.99
+
+HD( 507614-B21):
+    name: HP 1TB 7200 RPM SAS 6Gb/s 3.5" Internal Hard Drive -Retail
+    model:  507614-B21
+    maker: HP
+    Discspeed: 7200
+    Capacity: 1000
+    Interface: SAS
+    Interfacespeed: 6
+    SSD: FALSE
+    Wattage: 10
+    price: 369.99
+
+HD(507125-B21):
+    name: HP Enterprise  146GB 10000 RPM SAS 6Gb/s 2.5" SFF Internal Hard Drive -Retail
+    model: 507125-B21
+    maker: HP
+    Discspeed: 15000
+    Capacity: 500
+    Interface: SAS
+    Interfacespeed: 6
+    SSD: FALSE
+    Wattage: 10
+    price: 282.99
+
+HD(516816-B21):
+    name: HP Entry  450GB 15000 RPM SAS 6Gb/s 3.5" Internal Hard Drive -Retail
+    model: 516816-B21
+    maker: HP
+    Discspeed: 15000
+    Capacity: 450
+    Interface: SAS
+    Interfacespeed: 6
+    SSD: FALSE
+    Wattage: 10
+    price: 529.99
+
+HD(ST3300657SS):
+    name: Seagate Cheetah 15K.7  300GB 15000 RPM SAS 6Gb/s 3.5" Internal Hard Drive
+    model: ST3300657SS
+    maker: Seagate
+    Discspeed: 15000
+    Capacity: 300
+    Interface: SAS
+    Interfacespeed: 6
+    SSD: FALSE
+    Wattage: 10
+    price: 349.99
+
+HD(AP859A):
+    name: HP P2000  450GB 15000 RPM SAS 6Gb/s 3.5" Internal Hard Drive -Retail
+    model: AP859A
+    maker: HP
+    Discspeed: 15000
+    Capacity: 450
+    Interface: SAS
+    Interfacespeed: 6
+    SSD: FALSE
+    Wattage: 10
+    price: 579.99
+
+HD(AGT3-25SAT3-120G):
+    name: OCZ Agility 3  2.5" 120GB SATA III MLC Internal Solid State Drive (SSD)
+    model: AGT3-25SAT3-120G
+    maker: Samsung
+    Discspeed: 
+    Capacity: 120
+    Interface: SATA III
+    Interfacespeed: 6
+    SSD: TRUE
+    Wattage: 1
+    price: 199.99
+
+HD(MZ-7PC064D/AM):
+    name: SAMSUNG 830 Series  2.5" 64GB SATA III MLC Internal Solid State Drive (SSD)
+    model: MZ-7PC064D/AM
+    maker: Samsung
+    Discspeed: 
+    Capacity: 64
+    Interface: SATA III
+    Interfacespeed: 6
+    SSD: TRUE
+    Wattage: 1
+    price: 169.99
+
+HD(CT064M4SSD2):
+    name: Crucial M4  2.5" 64GB SATA III MLC Internal Solid State Drive (SSD)
+    model: CT064M4SSD2
+    maker: Samsung
+    Discspeed: 
+    Capacity: 64
+    Interface: SATA III
+    Interfacespeed: 6
+    SSD: TRUE
+    Wattage: 1
+    price: 144.99
+
+HD(SH100S3/120G):
+    name: Kingston HyperX  2.5" 120GB SATA III MLC Internal Solid State Drive (SSD)
+    model: SH100S3/120G
+    maker: Kingston
+    Discspeed: 
+    Capacity: 120
+    Interface: SATA III
+    Interfacespeed: 6
+    SSD: TRUE
+    Wattage: 1
+    price: 274.99
+
+HD(VTX3-25SAT3-120G):
+    name: OCZ Vertex 3  2.5" 120GB SATA III MLC Internal Solid State Drive (SSD)
+    model: VTX3-25SAT3-120G
+    maker: Samsung
+    Discspeed: 
+    Capacity: 120
+    Interface: SATA III
+    Interfacespeed: 6
+    SSD: TRUE
+    Wattage: 1
+    price: 199.99
+
+HD(123-456-789):
+    name: TGMtDSYCBaFC 250TB 25000RMP HDD
+    model: 123-456-789
+    maker: TGMtDSYCBaFC 
+    Discspeed: 25000
+    Capacity: 25000
+    Interface: superSATAX
+    Interfacespeed: 12
+    SSD: FALSE
+    Wattage: 25
+    price: 4999.99
+
+HD(321-654-987):
+    name: TGMtDSYCBaFC 250TB SSD
+    model: 321-654-987
+    maker: TGMtDSYCBaFC 
+    Discspeed: 
+    Capacity: 25000
+    Interface: superSATAX
+    Interfacespeed: 12
+    SSD: TRUE
+    Wattage: 25
+    price: 24999.99
+
+HD(111222333):
+    name: TGMtDSYCBaFC 500TB 25000RMP HDD
+    model: 111222333
+    maker: TGMtDSYCBaFC 
+    Discspeed: 25000
+    Capacity: 50000
+    Interface: superSATAX
+    Interfacespeed: 12
+    SSD: FALSE
+    Wattage: 25
+    price: 9999.99
+
+HD(helloimassd):
+    name: TGMtDSYCBaFC 500TB SSD
+    model: helloimassd
+    maker: TGMtDSYCBaFC 
+    Discspeed: 
+    Capacity: 50000
+    Interface: superSATAX
+    Interfacespeed: 12
+    SSD: TRUE
+    Wattage: 25
+    price: 49999.99
+
+HD(EL-GUSTO):
+    name: TGMtDSYCBaFC 1PB 50,000RMP HDD
+    model: EL-GUSTO
+    maker: TGMtDSYCBaFC 
+    Discspeed: 50000
+    Capacity: 100000
+    Interface: FaceMelterX
+    Interfacespeed: 9000
+    SSD: FALSE
+    Wattage: 150
+    price: 999999.99
+
+PSU(ETK500AWT):
+    maker: ENERMAX
+    model: ETK500AWT
+    Wattage: 500
+    price: 54.99
+    GPUAble: N
+
+PSU(CMPSU-650TXV2):
+    maker: CORSAIR
+    model: CMPSU-650TXV2
+    Wattage: 650
+    price: 89.99
+    GPUAble: N
+
+PSU(EA-750 GREEN):
+    maker: ANTEC
+    model: EA-750 GREEN
+    Wattage: 750
+    price: 99.99
+    GPUAble: Y
+
+PSU(CMPSU-750TXV3):
+    maker: CORSAIR
+    model: CMPSU-750TXV3
+    Wattage: 750
+    price: 109.99
+    GPUAble: Y
+
+PSU(ETK550AWT):
+    maker: ENERMAX
+    model: ETK550AWT
+    Wattage: 550
+    price: 69.99
+    GPUAble: N
+
+PSU(EA-1000 LIGHTNING):
+    maker: ANTEC
+    model: EA-1000 LIGHTNING
+    Wattage: 1000
+    price: 179.99
+    GPUAble: Y
+
+PSU(CMPSU-1000TXV5):
+    maker: CORSAIR
+    model: CMPSU-1000TXV5
+    Wattage: 1000
+    price: 175.99
+    GPUAble: Y
+
+PSU(ETK1500AWT):
+    maker: ENERMAX
+    model: ETK1500AWT
+    Wattage: 1500
+    price: 349.99
+    GPUAble: Y
+
+PSU(EA-460 SPARK):
+    maker: ANTEC
+    model: EA-460 SPARK
+    Wattage: 460
+    price: 34.99
+    GPUAble: N
+
+PSU(EA-650 YELLOW):
+    maker: ANTEC
+    model: EA-650 YELLOW
+    Wattage: 650
+    price: 69.99
+    GPUAble: N
+
+PSU(ETK650AWT):
+    maker: ENERMAX
+    model: ETK650AWT
+    Wattage: 650
+    price: 64.99
+    GPUAble: N
+
+PSU(CMPSU-XXXTXVALPHA):
+    maker: CORSAIR
+    model: CMPSU-XXXTXVALPHA
+    Wattage: 2000
+    price: 749.99
+    GPUAble: Y
+
+PSU(EA-40 LIGHTBULB):
+    maker: ANTEC
+    model: EA-40 LIGHTBULB
+    Wattage: 40
+    price: 4.99
+    GPUAble: N
+
+PSU(ETK700AWT):
+    maker: ENERMAX
+    model: ETK700AWT
+    Wattage: 700
+    price: 99.99
+    GPUAble: Y
+
+RAM(CMZ32GX3M4X1866C10):
+    maker: CORSAIR
+    model: CMZ32GX3M4X1866C10
+    Type: DDR3 1866
+    Capacity: 8
+    Power: 1.5
+    price: 149.99
+
+RAM(CMZ32GX3M4X1866C10R):
+    maker: CORSAIR
+    model: CMZ32GX3M4X1866C10R
+    Type: DDR3 1866
+    Capacity: 8
+    Power: 1.5
+    price: 149.99
+
+RAM(CMZ32GX3M4X1600C10):
+    maker: CORSAIR
+    model: CMZ32GX3M4X1600C10
+    Type: DDR3 1600
+    Capacity: 8
+    Power: 1.5
+    price: 109.99
+
+RAM(CMP32GX3M4X1600C10):
+    maker: CORSAIR
+    model: CMP32GX3M4X1600C10
+    Type: DDR3 1866
+    Capacity: 8
+    Power: 1.5
+    price: 99.99
+
+RAM(CMX12GX3M3A2000C9):
+    maker: CORSAIR
+    model: CMX12GX3M3A2000C9
+    Type: DDR3 2000
+    Capacity: 3
+    Power: 1.5
+    price: 49.99
+
+RAM(F3-12800CL7T2-24GBSRD):
+    maker: G.SKILL
+    model: F3-12800CL7T2-24GBSRD
+    Type: DDR3 1600
+    Capacity: 6
+    Power: 1.5
+    price: 119.99
+
+RAM(F3-17600CL9Q-16GBXLD):
+    maker: G.SKILL
+    model: F3-17600CL9Q-16GBXLD
+    Type: DDR3 2200
+    Capacity: 4
+    Power: 1.5
+    price: 124.99
+
+RAM(F2-6400CL5Q-16GBPQ):
+    maker: G.SKILL
+    model: F2-6400CL5Q-16GBPQ
+    Type: DDR2 800
+    Capacity: 4
+    Power: 1.5
+    price: 74.99
+
+RAM(F3-17000CL9Q-16GBZH):
+    maker: G.SKILL
+    model: F3-17000CL9Q-16GBZH
+    Type: DDR3 2133
+    Capacity: 4
+    Power: 1.65
+    price: 49.99
+
+RAM(CMT12GX3M6A1866C9):
+    maker: CORSAIR
+    model: CMT12GX3M6A1866C9
+    Type: DDR3 1866
+    Capacity: 3
+    Power: 1.5
+    price: 39.99
+
+RAM(CMP24GX3M6A1333C9):
+    maker: CORSAIR
+    model: CMP24GX3M6A1333C9
+    Type: DDR3 1333
+    Capacity: 6
+    Power: 1.5
+    price: 39.99
+
+Motherboard(GA-990FXA-UD3):
+    maker: GIGABYTE
+    model: GA-990FXA-UD3
+    CPUSocket: AM3+
+    FSB: 2600MHz
+    RAM: DDR3 2000(O.C.) / 1333 / 1066
+    MaxRAM: 32
+    HDInterface: SATA 6Gb/s
+    VideoCardInterface: PCIe
+    VideoCardSlots: 2
+    Power: 110
+    price: 148.99
+
+Motherboard(GA-970A-D3):
+    maker: GIGABYTE
+    model: GA-970A-D3
+    CPUSocket: AM3+
+    FSB: 2400MHz
+    RAM: DDR3 2000(O.C.) / 1333 / 1066
+    MaxRAM: 32
+    HDInterface: SATA 6Gb/s
+    VideoCardInterface: PCIe
+    VideoCardSlots: 2
+    Power: 93
+    price: 124.99
+
+Motherboard(GA-970A-UD3):
+    maker: GIGABYTE
+    model: GA-970A-UD3
+    CPUSocket: AM3+
+    FSB: 2400MHz
+    RAM: DDR3 2000(O.C.) / 1333 / 1066
+    MaxRAM: 32
+    HDInterface: SATA 6Gb/s
+    VideoCardInterface: PCIe
+    VideoCardSlots: 2
+    Power: 93
+    price: 114.99
+
+Motherboard(GA-990XA-UD3):
+    maker: GIGABYTE
+    model: GA-990XA-UD3
+    CPUSocket: AM3+
+    FSB: 2600MHz
+    RAM: DDR3 2000(O.C.) / 1333 / 1066
+    MaxRAM: 32
+    HDInterface: SATA 6Gb/s
+    VideoCardInterface: PCIe
+    VideoCardSlots: 3
+    Power: 140
+    price: 139.99
+
+Motherboard(GA-880GM-D2H):
+    maker: GIGABYTE
+    model: GA-880GM-D2H
+    CPUSocket: AM3+
+    FSB: 2600MHz
+    RAM: DDR3  1333 / 1066
+    MaxRAM: 8
+    HDInterface: SATA 3Gb/s
+    VideoCardInterface: PCIe
+    VideoCardSlots: 1
+    Power: 80
+    price: 79.99
+
+Motherboard(M4A87TD/USB3):
+    maker: ASUS
+    model: M4A87TD/USB3
+    CPUSocket: AM3
+    FSB: 2600MHz
+    RAM: DDR3 2000(O.C.) / 1333 / 1066
+    MaxRAM: 16
+    HDInterface: SATA 6Gb/s
+    VideoCardInterface: PCIe
+    VideoCardSlots: 1
+    Power: 93
+    price: 104.99
+
+Motherboard(M4A88TD-V EVO/USB3):
+    maker: ASUS
+    model: M4A88TD-V EVO/USB3
+    CPUSocket: AM3
+    FSB: 2600MHz
+    RAM: DDR3 2000(O.C.) / 1333 / 1066
+    MaxRAM: 16
+    HDInterface: SATA 6Gb/s
+    VideoCardInterface: PCIe
+    VideoCardSlots: 2
+    Power: 110
+    price: 114.99
+
+Motherboard(Sabertooth 990FX):
+    maker: ASUS
+    model: Sabertooth 990FX
+    CPUSocket: AM3+
+    FSB: 2600MHz
+    RAM: DDR3 1866/1600/1333/1066
+    MaxRAM: 32
+    HDInterface: SATA 6Gb/s
+    VideoCardInterface: PCIe
+    VideoCardSlots: 3
+    Power: 140
+    price: 189.99
+
+Motherboard(M5A88-V EVO):
+    maker: ASUS
+    model: M5A88-V EVO
+    CPUSocket: AM3+
+    FSB: 2600MHz
+    RAM: DDR3 2000(O.C.)/1866(O.C.)/1600(O.C.)/1333/1066
+    MaxRAM: 16
+    HDInterface: SATA 6Gb/s
+    VideoCardInterface: PCIe
+    VideoCardSlots: 2
+    Power: 140
+    price: 124.99
+
+Motherboard(Crosshair IV Formula):
+    maker: ASUS
+    model: Crosshair IV Formula
+    CPUSocket: AM3
+    FSB: 2600MHz
+    RAM: DDR3 2000(O.C.)/1800(O.C.)/1600(O.C.)/1333/1066
+    MaxRAM: 16
+    HDInterface: SATA 6Gb/s
+    VideoCardInterface: PCIe
+    VideoCardSlots: 3
+    Power: 150
+    price: 209.99
+
+Motherboard(P8Z68 Deluxe):
+    maker: ASUS
+    model: P8Z68 Deluxe
+    CPUSocket: LGA 1155
+    FSB: 2600MHz
+    RAM: DDR3 2200(O.C.)/2133(O.C.)/1866(O.C.)/1600/1333/1066
+    MaxRAM: 32
+    HDInterface: SATA 6Gb/s
+    VideoCardInterface: PCIe
+    VideoCardSlots: 2
+    Power: 110
+    price: 244.99
+
+Motherboard(P8H67-M PRO/CSM):
+    maker: ASUS
+    model: P8H67-M PRO/CSM
+    CPUSocket: LGA 1155
+    FSB: 2400MHz
+    RAM: DDR3 1333/1066
+    MaxRAM: 32
+    HDInterface: SATA 6Gb/s
+    VideoCardInterface: PCIe
+    VideoCardSlots: 2
+    Power: 110
+    price: 114.99
+
+Motherboard(P9X79):
+    maker: ASUS
+    model: P9X79
+    CPUSocket: LGA 2011
+    FSB: 2600MHz
+    RAM: DDR3 2400(O.C.)/2133(O.C.)/1866/1600/1333/1066
+    MaxRAM: 64
+    HDInterface: SATA 6Gb/s
+    VideoCardInterface: PCIe
+    VideoCardSlots: 3
+    Power: 160
+    price: 279.99
+
+Motherboard(GA-H61M-DS2):
+    maker: GIGABYTE
+    model: GA-H61M-DS2
+    CPUSocket: LGA 1155
+    FSB: 2400MHz
+    RAM: DDR3 1333 / 1066 / 800
+    MaxRAM: 16
+    HDInterface: SATA 3Gb/s
+    VideoCardInterface: PCIe
+    VideoCardSlots: 1
+    Power: 93
+    price: 74.99
+
+Motherboard(GA-Z68XP-UD3):
+    maker: GIGABYTE
+    model: GA-Z68XP-UD3
+    CPUSocket: LGA 1155
+    FSB: 2600MHz
+    RAM: DDR3 2133/1866/1600/1333/1066
+    MaxRAM: 32
+    HDInterface: SATA 6Gb/s
+    VideoCardInterface: PCIe
+    VideoCardSlots: 2
+    Power: 140
+    price: 149.99
