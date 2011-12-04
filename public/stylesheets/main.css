@@ -1,15 +1,17 @@
+
 .std_partlist
 {
-    width: 12em;
+    width: 20em;
+    
 }
 
 .std_panel
 {
-    width: 10em;
+    width: 8em;
 }
 .build_panel
 {
-    width: 20em;
+    width: 15em;
 }
 
 .mediumTable tr
@@ -24,20 +26,29 @@
 }
 
 #build_info {
-    width: 40%;
-    border: 2px dashed black;
-    margin:1em;
-    padding: 1em;
-    height: 14em;
+    width: 90%;
+    padding: 0.5em;
+    font-size: 12px;
+}
+
+#build_info td {
+    padding: 5px;
 }
 
 #admin_info_panel
 {
+    padding:0.5em;
+    font-family: Monaco, Courier;
+    font-size: 12px;
+}
+
+#admin_info_panel2
+{
     padding: 1em;
     margin: 1em;
     float: right;
-    width: 40%;
-    height: 14em;
+    width: 20em;
+    height: 12em;
     font-family: Monaco, Courier;
     border: 2px dashed gray;
 }

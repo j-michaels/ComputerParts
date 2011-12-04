@@ -1,4 +1,4 @@
-<div id="build_info">
+<div id="build_info" title="Current Build">
     <p>Selected Build</p>
     <table>
         <tr>
@@ -36,6 +36,9 @@
 </div>
 
 <script type="text/javascript" charset="utf=8">
+    $(function() {
+        $("#build_info").dialog({position: [8, 360], width:800, height: 295});
+    })
     function getCurrentBuild(func) {
         var listElement = document.getElementById("buildlist");
         var ind = listElement.options[listElement.selectedIndex].value;
@@ -112,13 +115,13 @@
                     cpu = "<p><strong>CPU:</strong> " + build.cpu.name + "</p>";
                 }
                 if (build.gpu != null) {
-                    gpu = "<p><strong>GPU:</strong> " + build.gpu.name + "</p>";
+                    gpu = "<p><strong>GPU:</strong> " + build.gpu.maker + " " + build.gpu.model + "</p>";
                 }
                 if (build.ram != null) {
-                    ram = "<p><strong>RAM:</strong> " + build.ram.name + "</p>";
+                    ram = "<p><strong>RAM:</strong> " + build.ram.maker + " " + build.ram.model + "</p>";
                 }
                 if (build.mb != null) {
-                    mb = "<p><strong>MB:</strong> " + build.mb.name + "</p>";
+                    mb = "<p><strong>MB:</strong> " + build.mb.maker + " " + build.mb.model + "</p>";
                 }
                 if (build.hd != null) {
                     hd = "<p><strong>HD:</strong> " + build.hd.name + "</p>";

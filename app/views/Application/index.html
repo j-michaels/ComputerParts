@@ -39,11 +39,25 @@
       #{if admin}
       var listAction = #{jsAction @filterSQL(':part', ':something') /};
       $.get(listAction( {part:partName, something: submitFields.join(",")}), function(data) {
-          $("#admin_info_panel").html(data);
+          if (data == "") {
+              $("#admin_info_panel").html("<p>No filters selected</p>");
+          } else {
+              $("#admin_info_panel").html(data);
+          }
       });
       #{/if}
     }
 </script>
+#{if admin}
+<div id="admin_info_panel" title="SQL panel">
+    
+</div>
+<script>
+$(function() {
+    $("#admin_info_panel").dialog({position: [8,660], width: 800, height: 140});
+})
+</script>
+#{/if}
 
 #{current /}
 <div id="tabs">
@@ -63,11 +77,7 @@
 	#{part part:'PSU', data: psus, id:6, admin:admin /}
 </div>
 
-#{if admin}
-<div id="admin_info_panel">
-    
-</div>
-#{/if}
+
 #{build builds:builds /}
 
 #{add_section /}
