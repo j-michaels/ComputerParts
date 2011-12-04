@@ -209,7 +209,7 @@ public class Application extends Controller {
     
     
     
-    public static void changeFilter(String part, String something) {
+    public static String filterSQLHelper(String part, String something) {
     	//System.out.println(something);
     	ArrayList<String> endSqls = new ArrayList<String>();
     	HashMap<String, ArrayList<String>> hashsqls = new HashMap<String, ArrayList<String>>();
@@ -256,6 +256,16 @@ public class Application extends Controller {
     		sqlStatement = "";
     	}
     	System.out.println(sqlStatement);
+    	return sqlStatement;
+    }
+    
+    public static void filterSQL(String part, String something) {
+    	String sqlStatement = filterSQLHelper(part, something);
+    	render(sqlStatement);
+    }
+    
+    public static void changeFilter(String part, String something) {
+    	String sqlStatement = filterSQLHelper(part, something);
     	Panel p = Panel.valueOf(part);
     	List parts = null;
     	switch (p) {
@@ -278,6 +288,7 @@ public class Application extends Controller {
     		parts = PSU.find(sqlStatement +" order by name desc").fetch();
     		break;
     	}
+    	
     	
     	
     	/*Iterator<HD> it = hds.iterator();

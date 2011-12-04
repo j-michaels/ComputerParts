@@ -22,3 +22,22 @@
     text-align: top;
     border-right: 1px solid black;
 }
+
+#build_info {
+    width: 40%;
+    border: 2px dashed black;
+    margin:1em;
+    padding: 1em;
+    height: 14em;
+}
+
+#admin_info_panel
+{
+    padding: 1em;
+    margin: 1em;
+    float: right;
+    width: 40%;
+    height: 14em;
+    font-family: Monaco, Courier;
+    border: 2px dashed gray;
+}

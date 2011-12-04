@@ -1,4 +1,4 @@
-<div>
+<div id="build_info">
     <p>Selected Build</p>
     <table>
         <tr>
@@ -53,7 +53,7 @@
         }
     }
     
-    function updateBuildView(build) {
+    function updateBuildView_old(build) {
         // update two divs
         var div1 = $('#build_list1');
         if (build == null) {
@@ -92,6 +92,46 @@
             
         }
     }
+    
+    function updateBuildView(build) {
+            // update two divs
+            var div1 = $('#build_list1');
+            if (build == null) {
+                div1.html("<p>No build selection</p>");
+            } else {
+                //alert("test");
+                var name = "<p><strong>Build Name:</strong> "+build.name+"</p>";
+                var cpu = "<p style=\"color:red\">No CPU selected</p>";
+                var gpu = "<p style=\"color:red\">No GPU selected</p>";
+                var ram = "<p style=\"color:red\">No RAM selected</p>";
+                var mb = "<p style=\"color:red\">No MB selected</p>";
+                var hd = "<p style=\"color:red\">No HD selected</p>";
+                var psu = "<p style=\"color:red\>No PSU selected</p>";
+
+                if (build.cpu != null) {
+                    cpu = "<p><strong>CPU:</strong> " + build.cpu.name + "</p>";
+                }
+                if (build.gpu != null) {
+                    gpu = "<p><strong>GPU:</strong> " + build.gpu.name + "</p>";
+                }
+                if (build.ram != null) {
+                    ram = "<p><strong>RAM:</strong> " + build.ram.name + "</p>";
+                }
+                if (build.mb != null) {
+                    mb = "<p><strong>MB:</strong> " + build.mb.name + "</p>";
+                }
+                if (build.hd != null) {
+                    hd = "<p><strong>HD:</strong> " + build.hd.name + "</p>";
+                }
+                if (build.psu != null) {
+                    psu = "<p><strong>PSU:</strong> " + build.psu.name + "</p>";
+                }
+                div1.html(name+cpu+gpu+ram);
+                var div2 = $('#build_list2');
+                div2.html(mb+hd+psu);
+
+            }
+        }
     
     function removeFromOptionList(list, id) {
     	var optionlist = document.getElementById(list).options;

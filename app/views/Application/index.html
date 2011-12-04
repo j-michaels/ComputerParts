@@ -36,6 +36,12 @@
           //console.log(data);
           $("#"+partName+"list").html(data);
       });
+      #{if admin}
+      var listAction = #{jsAction @filterSQL(':part', ':something') /};
+      $.get(listAction( {part:partName, something: submitFields.join(",")}), function(data) {
+          $("#admin_info_panel").html(data);
+      });
+      #{/if}
     }
 </script>
 
@@ -57,6 +63,10 @@
 	#{part part:'PSU', data: psus, id:6, admin:admin /}
 </div>
 
+
+<div id="admin_info_panel">
+    
+</div>
 #{build builds:builds /}
 
 #{add_section /}
