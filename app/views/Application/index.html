@@ -63,10 +63,11 @@
 	#{part part:'PSU', data: psus, id:6, admin:admin /}
 </div>
 
-
+#{if admin}
 <div id="admin_info_panel">
     
 </div>
+#{/if}
 #{build builds:builds /}
 
 #{add_section /}
