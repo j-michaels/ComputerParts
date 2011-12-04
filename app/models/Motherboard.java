@@ -9,8 +9,6 @@ import play.data.validation.*;
 @Entity
 public class Motherboard extends Model {
 	@Required
-    public String name;
-	@Required
 	public String maker;
 	@Required
     public String provides;
@@ -27,7 +25,11 @@ public class Motherboard extends Model {
 	public String hdInterface;
     public String other;
     
+    public String getName() {
+    	return maker + " " + model;
+    }
+    
     public Motherboard(String name) {
-    	this.name = name;
+    	
 	}
 }

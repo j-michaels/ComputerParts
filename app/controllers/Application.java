@@ -4,6 +4,9 @@ import play.*;
 import play.db.jpa.Model;
 import play.mvc.*;
 import java.util.*;
+import java.util.Map.Entry;
+
+import org.apache.commons.lang.StringUtils;
 
 import flexjson.JSONSerializer;
 import models.*;
@@ -11,6 +14,10 @@ import models.*;
 public class Application extends Controller {
 	public static enum Panel {
 		CPU, GPU, RAM, HD, MB, PSU, BUILD
+	}
+	
+	public static enum Comparer {
+		EQUALS, GTR, LTN, GTRE, LTNE, SEQUALS
 	}
 	
     public static void index() {
@@ -200,8 +207,63 @@ public class Application extends Controller {
     	renderJSON(build);
     }
     
-    public static void changeFilter(String something) {
-    	System.out.println(something);
+    
+    
+    public static void changeFilter(String part, String something) {
+    	//System.out.println(something);
+    	ArrayList<String> endSqls = new ArrayList<String>();
+    	HashMap<String, ArrayList<String>> hashsqls = new HashMap<String, ArrayList<String>>();
+    	String[] predicates = something.split(",");
+    	for (int i = 0; i<predicates.length; i++) {
+    		String[] parts = predicates[i].split(":");
+    		if (parts.length==3) {
+    			ArrayList<String> sqls = hashsqls.get(parts[1]);
+    			if (sqls == null) {
+    				sqls = new ArrayList<String>();
+    			}
+    			Comparer comp = Comparer.valueOf(parts[0].toUpperCase());
+    			switch (comp) {
+    			case SEQUALS:
+    				sqls.add(parts[1] + " like '" + parts[2]+"'");
+    				break;
+    			case EQUALS:
+    				sqls.add(parts[1] + " = " + parts[2]);
+    				break;
+    			case GTR:
+    				sqls.add(parts[1]+" > " + parts[2]);
+    				break;
+    			case LTN:
+    				sqls.add(parts[1]+" < " + parts[2]);
+    				break;
+    			case GTRE:
+    				sqls.add(parts[1]+ " >= " + parts[2]);
+    				break;
+    			case LTNE:
+    				sqls.add(parts[1]+ " <= " + parts[2]);
+    				break;
+    			}
+    			
+    			hashsqls.put(parts[1], sqls);
+    		}
+    	}
+    	Iterator<ArrayList<String>> itr = hashsqls.values().iterator();
+    	while (itr.hasNext()) {
+    		endSqls.add(StringUtils.join(itr.next().toArray(), " or "));
+    	}
     	
+    	String sqlStatement = "(" + StringUtils.join(endSqls.toArray(), ") and (") + ")";
+    	if (sqlStatement.equals("()")) {
+    		sqlStatement = "";
+    	}
+    	System.out.println(sqlStatement);
+    	
+    	List parts = HD.find(sqlStatement +" order by name desc").fetch();
+    	/*Iterator<HD> it = hds.iterator();
+    	while (it.hasNext()) {
+    		HD hd = it.next();
+    		System.out.println(hd.name);
+    	}*/
+    	
+    	renderTemplate("Application/list.html", part, parts);
     }
 }

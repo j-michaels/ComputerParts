@@ -74,27 +74,27 @@
 #{elseif _part == "HD"}
 
 <form name="hd" id="hd_form">
-<input type="radio" name="hd_ssd" onchange="hdOptions(1);" />HDD &nbsp;
-<input type="radio" name="hd_ssd" onchange="hdOptions(2);" />SSD
+<input type="radio" name="ssd" onchange="hdOptions(1);" class="equals" value="false" />HDD &nbsp;
+<input type="radio" name="ssd" onchange="hdOptions(2);" class="equals" value="true" />SSD
 <div id="hdd" style="display:none">
   <table cellspacing="10">
     <tr valign="top">
       <td>
         Manufacturer <br />
-        <input type="checkbox" name="hd_manufacturer" />Western Digital <br />
-        <input type="checkbox" name="hd_manufacturer" />Seagate <br />
+        <input type="checkbox" name="maker" value="Western%20Digital" class="sequals" />Western Digital <br />
+        <input type="checkbox" name="maker" value="Seagate" class="sequals" />Seagate <br />
       </td>
       <td>
         Capacity <br />
-        <input type="radio" name="hd_capacity" />&lt;500GB <br />
-        <input type="radio" name="hd_capacity" />&gt;=500GB <br />
-        <input type="radio" name="hd_capacity" />&gt;=750GB <br />
-        <input type="radio" name="hd_capacity" />&gt;=1TB <br />
+        <input type="radio" name="capacity" value="50000" class="ltn" />&lt;500GB <br />
+        <input type="radio" name="capacity" value="50000" class="gtre" />&gt;=500GB <br />
+        <input type="radio" name="capacity" value="75000" class="gtre" />&gt;=750GB <br />
+        <input type="radio" name="capacity" value="100000" class="gtre" />&gt;=1TB <br />
       </td>
       <td>
         Interface <br />
-        <input type="checkbox" name="hd_interface" />SATA 3Gb/s <br />
-        <input type="checkbox" name="hd_interface" />SATA 6Gb/s <br />
+        <input type="checkbox" name="intrfaceSpeed" value="3" class="equals" />SATA 3Gb/s <br />
+        <input type="checkbox" name="intrfaceSpeed" value="6" class="equals" />SATA 6Gb/s <br />
       </td>
     </tr>
   </table>
@@ -105,24 +105,21 @@
     <tr valign="top">
       <td>
         Manufacturer <br />
-        <input type="checkbox" name="manufacturer" />OCZ <br />
-        <input type="checkbox" name="manufacturer" />Crucial <br />
+        <input type="checkbox" name="maker" class="sequals" />OCZ <br />
+        <input type="checkbox" name="maker" class="sequals" />Crucial <br />
       </td>
       <td>
         Capacity <br />
-        <input type="radio" name="capacity" value="< 64" />&lt;64GB <br />
-        <input type="radio" name="capacity" value=">= 64"/>&gt;=64GB <br />
-        <input type="radio" name="capacity" value=">= 120"/>&gt;=120GB <br />
+        <input type="radio" name="capacity" value="64" />&lt;64GB <br />
+        <input type="radio" name="capacity" value="64"/>&gt;=64GB <br />
+        <input type="radio" name="capacity" value="120"/>&gt;=120GB <br />
       </td>
       <td>
         Interface <br />
-        <input type="checkbox" name="hd_interface" />SATA III <br />
+        <input type="checkbox" name="intrface" class="sequals" />SATA III <br />
       </td>
     </tr>
   </table>
-</div>
-<div id="results" style="border: 1px solid red; width: 10em;">
-    
 </div>
 <script>
   function hdOptions(arg)
@@ -139,18 +136,25 @@
   function showValues() {
     var fields = $(":input").serializeArray();
     var checkboxes = $("#hd_form").find("input:checkbox");
+    var radioboxes = $("#hd_form").find("input:radio");
     console.log(checkboxes);
-    $("#results").empty();
     submitFields=[];
     
     jQuery.each(checkboxes, function(i, checkbox){
         if (checkbox.checked) {
-     // $("#results").append(checkbox.name + " ");
-      submitFields.push("equal:"+checkbox.name+":"+checkbox.value);
+            submitFields.push(checkbox.className+":"+checkbox.name+":"+checkbox.value);
         }
     });
-    var listAction = #{jsAction @changeFilter(':something') /};
-    $.post(listAction( {something: submitFields.join(",")}));
+    jQuery.each(radioboxes, function(i, radiobox) {
+        if (radiobox.checked) {
+            submitFields.push(radiobox.className+":"+radiobox.name+":"+radiobox.value);
+        }
+    });
+    var listAction = #{jsAction @changeFilter(':part',':something') /};
+    //$.get(listAction( {part:"${_part}", something: submitFields.join(",")}), function(data) {    });
+    $.get(listAction( {part:"${_part}", something: submitFields.join(",")}), function(data) {
+        $('#HDlist').html(data);
+    });
   }
 
   $(":checkbox, :radio").click(showValues);

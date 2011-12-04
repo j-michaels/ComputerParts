@@ -12,7 +12,6 @@ public class GPU extends Model {
 	@ManyToOne
 	public Build build;
 	
-	public String name;
 	public String maker;
     public String requires;
     public int vram;
@@ -21,8 +20,11 @@ public class GPU extends Model {
     public double price;
     public String intrface;
     
+    public String getName() {
+    	return maker + " " + model;
+    }
     
     public GPU(String name) {
-    	this.name = name;
+    	
 	}
 }

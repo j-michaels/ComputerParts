@@ -9,7 +9,7 @@ public class Bootstrap extends Job {
 	public void doJob() {
 		if (Build.count() == 0) {
 			System.out.println("Attempting to load initial data.");
-			Fixtures.loadModels("initial-data.yml");
+			Fixtures.loadModels("data-1.yml");
 		}
 	}
 }

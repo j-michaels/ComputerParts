@@ -13,13 +13,18 @@ public class RAM extends Model {
 	public String requires;
 	public String model;
 	public String maker;
-	public String name;
+	
 	public double power;
 	public int capacity;
 	public double price;
 	public String type;
 	
+	
+	public String getName() {
+		return maker + " " + model;
+	}
+	
 	public RAM(String name) {
-    	this.name = name;
+    	
 	}
 }

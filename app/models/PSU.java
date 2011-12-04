@@ -13,13 +13,16 @@ public class PSU extends Model {
 	@Required
 	public String maker;
 	
-	@Required
-	public String name;
-	
 	public int wattage;
 	public double price;
 	public String model;
+	
+    public String getName() {
+    	return maker + " " + model;
+    }
+    
+	
 	public PSU(String name) {
-    	this.name = name;
+    	
 	}
 }
